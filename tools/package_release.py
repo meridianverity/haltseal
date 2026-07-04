@@ -12,8 +12,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 VERSION = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
-RELEASE_VERSION_TOKEN = (VERSION if VERSION.startswith("v") else f"v{VERSION}").replace(".", "_").replace("-", "_").upper()
-RELEASE_BASENAME = f"HALTSEAL_GATEWAY_PROOF_PACK_{RELEASE_VERSION_TOKEN}"
+RELEASE_TAG = VERSION if VERSION.startswith("v") else f"v{VERSION}"
+RELEASE_BASENAME = f"haltseal-gateway-proof-pack-{RELEASE_TAG}"
 EXCLUDE_PARTS = {".git", "__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache", "dist", "build"}
 EXCLUDE_SUFFIXES = {".pyc", ".pyo"}
 FIXED_ZIP_TS = (2026, 7, 4, 12, 0, 0)
@@ -70,7 +70,7 @@ def sha256_file(path: Path) -> str:
 
 
 def build_zip(out_zip: Path) -> None:
-    root_name = ROOT.name
+    root_name = RELEASE_BASENAME
     files = [p for p in sorted(ROOT.rglob("*")) if p.is_file() and include_file(p)]
     out_zip.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(out_zip, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zf:

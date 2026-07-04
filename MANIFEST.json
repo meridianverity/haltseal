@@ -107,9 +107,9 @@
       "sha256": "1949520059843a86547cfd989bb241ccb2ff90852797bc36b871c9a0aa64b9cf"
     },
     {
-      "bytes": 479,
+      "bytes": 606,
       "path": "docs/COMMIT_PLAN.md",
-      "sha256": "671ea58fe021d701893169baa79b4a5068b7423f29675e5d73a21ab1310b5d3d"
+      "sha256": "5baa401f333ac6e30e3c9050af8a7e6f775758ea91c2ff567ad98c69a39bbc55"
     },
     {
       "bytes": 562,
@@ -127,14 +127,14 @@
       "sha256": "6b666637c5ee292a64b028e03d786fcede66199e20a4ad75987957d6653f8a2f"
     },
     {
-      "bytes": 727,
+      "bytes": 3033,
       "path": "docs/GITHUB_RELEASE_BODY.md",
-      "sha256": "e1b89e8fe98787f49cfafd62841e486ecf4103dc6cf01732c3888a43327511dc"
+      "sha256": "35e93686b9ea0518b243022a1bb34bf3645c409145bfe263a57e804ca2f76f7f"
     },
     {
-      "bytes": 1042,
+      "bytes": 1310,
       "path": "docs/GITHUB_UPLOAD_CHECKLIST.md",
-      "sha256": "332105acb63b1a1a9e81bfe58d8b49dee5517e5716f4d356ac809e522acefadf"
+      "sha256": "10dc595c2fefa8c3d28ebae76be7345aa813308c6cef91a10cf3e785647315f5"
     },
     {
       "bytes": 1066,
@@ -617,9 +617,9 @@
       "sha256": "35e9f4818b9b14513779490270ab81c0c1d729a7d143e1438c11511574a00c19"
     },
     {
-      "bytes": 4315,
+      "bytes": 4256,
       "path": "tools/package_release.py",
-      "sha256": "63a9d509c7322b38c997b4ef94d67642a2dc0a653b6024c594fbfed0e23e4530"
+      "sha256": "918017341b8bba87286e5c233cf1e0d71217d5c6193fbfdc9696cca6e8037a23"
     },
     {
       "bytes": 959,

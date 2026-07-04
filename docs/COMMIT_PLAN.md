@@ -1,16 +1,30 @@
 # Commit plan
 
+Recommended branch:
+
 ```bash
-git checkout -b prep/haltseal-gateway-proof-pack-v0.3
+git checkout -b prep/haltseal-v0.3.1-proof-receipt
 ```
 
-Suggested commits:
+Recommended commits:
 
 ```text
-chore: initialize HALTSEAL gateway proof pack public-eval boundary
-docs: add public boundary, patent notice, security limitations, and reviewer guide
-feat: add synthetic protected-action gateway verifier
-test: add fail-closed HALTSEAL gateway vectors
-docs: add 3-minute demo script and licensing handoff guide
-release: add v0.3.0 public-eval manifest and QA report
+release: add HALTSEAL v0.3.1 proof receipt layer
+release: add portable proof receipt artifacts and verifier
+release: align GitHub release body and upload checklist
+release: refresh manifest, source tree, and release gates
+```
+
+Recommended tag:
+
+```bash
+git tag -a v0.3.1-proof-receipt -m "HALTSEAL Gateway Proof Pack v0.3.1-proof-receipt"
+```
+
+Recommended final checks:
+
+```bash
+make all
+HALTSEAL_STRICT_TREE=1 python tools/release_gate.py
+python tools/package_release.py
 ```
