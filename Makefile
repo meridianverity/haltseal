@@ -1,7 +1,7 @@
 PYTHON ?= python
 export PYTHONDONTWRITEBYTECODE=1
 
-.PHONY: regenerate eval validate transparency attestation manifest test release-gate zip-audit package all clean clean-caches clean-bytecode
+.PHONY: regenerate eval validate transparency attestation receipt manifest test release-gate zip-audit package all clean clean-caches clean-bytecode
 
 regenerate:
 	$(PYTHON) tools/regenerate_vectors.py
@@ -18,6 +18,10 @@ transparency:
 attestation:
 	$(PYTHON) tools/generate_attestation.py
 
+receipt:
+	$(PYTHON) tools/export_proof_receipt.py
+	$(PYTHON) tools/verify_proof_receipt.py
+
 manifest:
 	$(PYTHON) tools/make_manifest.py
 	$(PYTHON) verify_manifest.py
@@ -31,10 +35,10 @@ release-gate:
 zip-audit: clean-caches
 	$(PYTHON) tools/zip_audit.py
 
-package: clean-caches regenerate eval validate transparency attestation manifest test release-gate zip-audit
+package: clean-caches regenerate eval validate transparency attestation receipt manifest test release-gate zip-audit
 	$(PYTHON) tools/package_release.py
 
-all: clean-caches regenerate eval validate transparency attestation manifest test release-gate zip-audit
+all: clean-caches regenerate eval validate transparency attestation receipt manifest test release-gate zip-audit
 
 clean-caches:
 	find . -type d \( -name __pycache__ -o -name .pytest_cache -o -name .mypy_cache -o -name .ruff_cache \) -prune -exec rm -rf {} +

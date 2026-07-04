@@ -10,11 +10,11 @@
   "passed_vectors": 32,
   "privacy_posture": "aggregated counts only; no per-subject data; synthetic vectors only",
   "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
-  "report_hash": "cede27119a83fc60c250e02864e3ab615cc1867f1dfdcc2cf30bd8990cd6f3f6",
+  "report_hash": "cdaedfbcead1b9e60da9a45db106cd1ebe2391282a005ec89c2d4ae80ad3b252",
   "report_sig": {
     "alg": "HS256-SYNTHETIC",
     "kid": "haltseal-public-eval-key-2026-07-04-v3",
-    "sig": "eGduTtM_lj93-JOUIIkhadlt1O89L2CfxY40M-p0IHk"
+    "sig": "SMr57Fa4axMHR6t07XCDds8qfhCrtKFTeOc62nhaboM"
   },
   "reporting_period": "synthetic-public-eval-2026-07-04",
   "result_code_counts": {
@@ -64,5 +64,5 @@
     "PROOF_CONTINUITY": 2
   },
   "total_vectors": 32,
-  "version": "0.3.0-public-eval"
+  "version": "0.3.1-proof-receipt"
 }

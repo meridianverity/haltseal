@@ -1,19 +1,19 @@
 {
   "actual_pass_count": 32,
   "artifact": "HALTSEAL Gateway Proof Pack",
-  "attestation_hash": "b273df5b292370d9600d956b1ecb4a71763cc36960dcac95feb7c4eb0916d00b",
+  "attestation_hash": "f767a8e4515abcf758202d4aff20227203657f5d138ed69870707b88c20614c8",
   "attestation_scope": "synthetic public evaluation only; counts generated from vectors, QA_RESULTS.json, and tests/test_*.py",
   "attestation_sig": {
     "alg": "HS256-SYNTHETIC",
     "kid": "haltseal-public-eval-key-2026-07-04-v3",
-    "sig": "NUWvkL1j_Bz0gb9fYKe6sSJgh0GQMM7gqfjj9JgjKV4"
+    "sig": "zCGlbbgKJFx_tgUW_j8WWAfZ0A_7XdWqIJDT2dni8l0"
   },
   "boundary": "synthetic evaluation only; no production SDK; no patent license",
   "expected_pass_count": 32,
   "failed_count": 0,
   "generated_at": "2026-07-04T12:00:00Z",
   "release_posture": "no production SDK; no patent license; no certification; written-scope depth required",
-  "test_count": 34,
+  "test_count": 40,
   "vector_count": 32,
-  "version": "0.3.0-public-eval"
+  "version": "0.3.1-proof-receipt"
 }

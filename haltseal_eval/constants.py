@@ -1,4 +1,4 @@
-VERSION = "0.3.0-public-eval"
+VERSION = "0.3.1-proof-receipt"
 
 PERMIT_CONTEXT = "HALTSEAL/permit/v0.3/public-eval"
 ACTION_CONTEXT = "HALTSEAL/protected-action/v0.3/public-eval"
@@ -30,3 +30,10 @@ ALLOWED_IMPLEMENTATION_HOOKS = [PUBLIC_EVAL_IMPLEMENTATION_HOOK]
 
 DISPOSITIONS = ["ALLOW", "HOLD", "QUARANTINE", "DENY", "ESCALATE"]
 PUBLIC_BOUNDARY_NOTICE = "synthetic evaluation only; no production SDK; no patent license"
+
+PROOF_RECEIPT_CONTEXT = "HALTSEAL/proof-receipt/v1"
+PUBLIC_EVAL_RELEASE_VERSION = "v0.3.0-public-eval"
+PUBLIC_EVAL_RELEASE_SHA256 = "ad83dc11e0d12743274c6e66d720e46ecc62d1ac46b1bcfe7f442d2a97786149"
+PUBLIC_EVAL_REPOSITORY = "https://github.com/meridianverity/haltseal"
+PUBLIC_EVAL_RELEASE_URL = "https://github.com/meridianverity/haltseal/releases/tag/v0.3.0-public-eval"
+PROOF_RECEIPT_VERSION = "v1"
