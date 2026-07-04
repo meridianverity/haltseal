@@ -1,0 +1,42 @@
+{
+  "artifact": "HALTSEAL Gateway Proof Pack",
+  "diligence_next_step": "Review one protected action boundary and identify the first missing-proof HOLD condition.",
+  "enabled_public_eval_hook": "network_egress_gateway",
+  "evidence_hash": "4fd01852991b7b734d5db598f8e8261c2b2ac039b7e2b153138f11739f385e7d",
+  "evidence_sig": {
+    "alg": "HS256-SYNTHETIC",
+    "kid": "haltseal-public-eval-key-2026-07-04-v3",
+    "sig": "k8EwoNKmePmKPlyeZn69YY4ykjJBUP9t7l-WCv07rSY"
+  },
+  "expected_tests": {
+    "pytest_passed": 40
+  },
+  "generated_at": "2026-07-04T12:00:00Z",
+  "notices": [
+    "not a certificate",
+    "not a production attestation",
+    "not a patent-license grant",
+    "not a security certification"
+  ],
+  "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+  "public_eval_version": "v0.3.0-public-eval",
+  "receipt_purpose": "public review, reproducible evaluation, and written-scope diligence handoff",
+  "receipt_tool_release": "v0.3.1-proof-receipt",
+  "receipt_type": "HALTSEAL_GATEWAY_PROOF_RECEIPT",
+  "receipt_version": "v1",
+  "release": "https://github.com/meridianverity/haltseal/releases/tag/v0.3.0-public-eval",
+  "release_sha256": "ad83dc11e0d12743274c6e66d720e46ecc62d1ac46b1bcfe7f442d2a97786149",
+  "repository": "https://github.com/meridianverity/haltseal",
+  "rights_posture": [
+    "no production SDK",
+    "no patent license",
+    "no certification",
+    "no conformance program",
+    "written-scope diligence required for implementation depth"
+  ],
+  "vector_result": {
+    "failed": 0,
+    "passed": 32,
+    "total": 32
+  }
+}

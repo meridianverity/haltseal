@@ -8,11 +8,15 @@ Run the demo first:
 
 ```bash
 python tools/run_public_eval.py
+python tools/export_proof_receipt.py
+python tools/verify_proof_receipt.py
 ```
 
 Then read, in order:
 
 1. `docs/PUBLIC_BOUNDARY.md`
 2. `docs/GATEWAY_PROOF_PACK.md`
-3. `docs/REVIEWER_GUIDE.md`
-4. `docs/LICENSING_HANDOFF.md`
+3. `docs/PROOF_RECEIPT.md`
+4. `docs/REVIEWER_GUIDE.md`
+5. `docs/DILIGENCE_PACKET.md`
+6. `docs/LICENSING_HANDOFF.md`

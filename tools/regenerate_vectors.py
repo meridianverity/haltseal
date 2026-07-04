@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -18,7 +19,8 @@ def main() -> int:
     examples_dir = ROOT / "examples"
     examples_dir.mkdir(exist_ok=True)
     for stale in examples_dir.glob("h*.json"):
-        stale.unlink()
+        if re.match(r"^h\d{2}_", stale.stem):
+            stale.unlink()
     for packet in vectors:
         write_json(examples_dir / f"{packet['vector_id'].lower()}.json", packet)
     print(f"vectors: regenerated {len(vectors)} public-eval packets")

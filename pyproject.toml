@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "haltseal-gateway-proof-pack"
-version = "0.3.0"
-description = "HALTSEAL Gateway Proof Pack public-safe synthetic evaluation artifact"
+version = "0.3.1"
+description = "HALTSEAL Gateway Proof Pack public-safe synthetic evaluation and proof receipt artifact"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "Source-available evaluation license; see LICENSE-EVALUATION.md"}

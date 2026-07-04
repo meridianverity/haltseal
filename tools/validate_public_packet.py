@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -113,7 +114,7 @@ def check_examples_match_vectors() -> list[str]:
         if example_packet != packet:
             findings.append(f"example does not exactly match vector: {expected.relative_to(ROOT)}")
 
-    example_ids = {p.stem.upper() for p in (ROOT / "examples").glob("h*.json")}
+    example_ids = {p.stem.upper() for p in (ROOT / "examples").glob("h*.json") if re.match(r"^h\d{2}_", p.stem)}
     vector_ids_upper = {v.upper() for v in vector_by_id}
     for extra in sorted(example_ids - vector_ids_upper):
         findings.append(f"orphan example without vector: {extra.lower()}.json")

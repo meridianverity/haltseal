@@ -37,7 +37,16 @@ def audit_names(names: list[str]) -> list[str]:
 
 
 def names_from_tree(root: Path) -> list[str]:
-    return [str(p.relative_to(root)).replace("\\", "/") for p in root.rglob("*") if p.is_file()]
+    ignored = {"dist", "build", ".git", "__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache"}
+    names: list[str] = []
+    for p in root.rglob("*"):
+        if not p.is_file():
+            continue
+        rel = p.relative_to(root)
+        if set(rel.parts) & ignored:
+            continue
+        names.append(str(rel).replace("\\", "/"))
+    return names
 
 
 def main(argv: list[str]) -> int:

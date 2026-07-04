@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+VERSION = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
 EXCLUDE_NAMES = {"MANIFEST.json", "MANIFEST.sha256.json"}
 EXCLUDE_PARTS = {".git", "__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache", "dist", "build"}
 EXCLUDE_SUFFIXES = {".pyc", ".pyo"}
@@ -40,7 +41,7 @@ def build_manifest() -> list[dict]:
 
 def main() -> int:
     rows = build_manifest()
-    (ROOT / "MANIFEST.json").write_text(json.dumps({"artifact": "haltseal-gateway-proof-pack", "version": "0.3.0-public-eval", "files": rows}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    (ROOT / "MANIFEST.json").write_text(json.dumps({"artifact": "haltseal-gateway-proof-pack", "version": VERSION, "files": rows}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     (ROOT / "MANIFEST.sha256.json").write_text(json.dumps({row["path"]: row["sha256"] for row in rows}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(f"manifest: wrote {len(rows)} file entries")
     return 0

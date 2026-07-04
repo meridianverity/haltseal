@@ -23,6 +23,7 @@ docs/API_SURFACE.md
 docs/BOUNDARY_MAPPER.md
 docs/COMMIT_PLAN.md
 docs/DEMO_SCRIPT_3_MIN.md
+docs/DILIGENCE_PACKET.md
 docs/GATEWAY_PROOF_PACK.md
 docs/GITHUB_RELEASE_BODY.md
 docs/GITHUB_UPLOAD_CHECKLIST.md
@@ -32,6 +33,7 @@ docs/IP_PUBLIC_ALIGNMENT.md
 docs/LICENSING_HANDOFF.md
 docs/ORPRG_CROSSWALK.md
 docs/PATENT_AND_IP_POSTURE.md
+docs/PROOF_RECEIPT.md
 docs/PUBLIC_BOUNDARY.md
 docs/QA_REPORT_v0_3_0_PUBLIC_EVAL.md
 docs/RELEASE_DECISION_RECORD_v0_3_0.md
@@ -76,6 +78,9 @@ examples/h29_deny_unknown_action_field.json
 examples/h30_deny_signed_head_shape_invalid.json
 examples/h31_deny_validation_policy_now_mismatch.json
 examples/h32_deny_signature_algorithm_mismatch.json
+examples/haltseal_gateway_proof_receipt.example.json
+examples/haltseal_gateway_proof_receipt.example.md
+examples/haltseal_gateway_proof_receipt.procurement_block.txt
 haltseal_eval/__init__.py
 haltseal_eval/action_digest.py
 haltseal_eval/canonicalization.py
@@ -84,14 +89,19 @@ haltseal_eval/evidence.py
 haltseal_eval/fixtures.py
 haltseal_eval/gateway.py
 haltseal_eval/permit.py
+haltseal_eval/proof_receipt.py
 haltseal_eval/replay.py
 haltseal_eval/signed_head.py
 haltseal_eval/synthetic_crypto.py
 haltseal_eval/timeutils.py
 haltseal_eval/verifier.py
 pyproject.toml
+receipts/haltseal-gateway-proof-receipt.json
+receipts/haltseal-gateway-proof-receipt.md
+receipts/haltseal-gateway-proof-receipt.txt
 requirements.txt
 schemas/gateway_review_packet.schema.json
+schemas/haltseal_gateway_proof_receipt.schema.json
 schemas/ial_record.schema.json
 schemas/permit_token.schema.json
 schemas/protected_action.schema.json
@@ -104,10 +114,12 @@ tests/test_fail_closed_vectors.py
 tests/test_malformed_fail_closed.py
 tests/test_permit_and_signed_head.py
 tests/test_policy_locks.py
+tests/test_proof_receipt.py
 tests/test_release_consistency_locks.py
 tests/test_release_gate_and_manifest.py
 tests/test_replay.py
 tests/test_schema_validation.py
+tools/export_proof_receipt.py
 tools/generate_attestation.py
 tools/generate_transparency_report.py
 tools/make_manifest.py
@@ -116,6 +128,7 @@ tools/regenerate_vectors.py
 tools/release_gate.py
 tools/run_public_eval.py
 tools/validate_public_packet.py
+tools/verify_proof_receipt.py
 tools/zip_audit.py
 vectors/expected_results.json
 vectors/haltseal_gateway_vectors.json

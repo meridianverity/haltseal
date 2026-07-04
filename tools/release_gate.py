@@ -53,11 +53,19 @@ REQUIRED_FILES = [
     "docs/PUBLIC_BOUNDARY.md",
     "docs/BOUNDARY_MAPPER.md",
     "docs/LICENSING_HANDOFF.md",
+    "docs/PROOF_RECEIPT.md",
+    "docs/DILIGENCE_PACKET.md",
     "docs/REVIEWER_GUIDE.md",
     "docs/RELEASE_READINESS_v0_3_0.md",
     "docs/IP_PUBLIC_ALIGNMENT.md",
     "attestations/synthetic_evaluation_attestation.json",
     "attestations/privacy_preserving_transparency_report.json",
+    "receipts/haltseal-gateway-proof-receipt.json",
+    "receipts/haltseal-gateway-proof-receipt.md",
+    "receipts/haltseal-gateway-proof-receipt.txt",
+    "schemas/haltseal_gateway_proof_receipt.schema.json",
+    "tools/export_proof_receipt.py",
+    "tools/verify_proof_receipt.py",
     "tools/run_public_eval.py",
     "tools/validate_public_packet.py",
     "tools/generate_transparency_report.py",
@@ -128,6 +136,26 @@ def check_attestation_consistency() -> list[str]:
         findings.append(f"QA failed count is nonzero: {qa.get('failed')!r}")
     return findings
 
+
+
+def check_proof_receipt_consistency() -> list[str]:
+    findings: list[str] = []
+    try:
+        from haltseal_eval.proof_receipt import build_proof_receipt, verify_proof_receipt
+        receipt = load_json("receipts/haltseal-gateway-proof-receipt.json")
+        expected = build_proof_receipt(ROOT)
+    except Exception as exc:
+        return [f"proof receipt consistency check could not load required data: {exc}"]
+    if receipt != expected:
+        findings.append("receipts/haltseal-gateway-proof-receipt.json is not synchronized with QA_RESULTS.json")
+    findings += [f"proof receipt invalid: {f}" for f in verify_proof_receipt(receipt, ROOT)]
+    md = ROOT / "receipts" / "haltseal-gateway-proof-receipt.md"
+    txt = ROOT / "receipts" / "haltseal-gateway-proof-receipt.txt"
+    if md.exists() and "HALTSEAL Gateway Proof Receipt" not in md.read_text(encoding="utf-8"):
+        findings.append("proof receipt Markdown missing title")
+    if txt.exists() and "Result: 32 / 32 public vectors PASS" not in txt.read_text(encoding="utf-8"):
+        findings.append("proof receipt text block missing vector result")
+    return findings
 
 def check_transparency_report_consistency() -> list[str]:
     findings: list[str] = []
@@ -200,6 +228,7 @@ def main() -> int:
         + scan_text()
         + check_attestation_consistency()
         + check_transparency_report_consistency()
+        + check_proof_receipt_consistency()
         + check_boundary_mapper_consistency()
     )
     if os.environ.get("HALTSEAL_STRICT_TREE") == "1":

@@ -29,6 +29,9 @@ def run(cmd: list[str]) -> None:
 
 
 def clean_generated_caches() -> None:
+    # Keep release hygiene deterministic even when a prior package run left dist/.
+    if (ROOT / "dist").exists():
+        shutil.rmtree(ROOT / "dist")
     for p in ROOT.rglob("*"):
         if p.is_dir() and p.name in {"__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache"}:
             shutil.rmtree(p)
@@ -85,6 +88,8 @@ def main() -> int:
     run([sys.executable, "tools/validate_public_packet.py"])
     run([sys.executable, "tools/generate_transparency_report.py"])
     run([sys.executable, "tools/generate_attestation.py"])
+    run([sys.executable, "tools/export_proof_receipt.py"])
+    run([sys.executable, "tools/verify_proof_receipt.py"])
     refresh_source_tree()
     run([sys.executable, "tools/make_manifest.py"])
     run([sys.executable, "verify_manifest.py"])
