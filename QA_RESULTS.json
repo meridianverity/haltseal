@@ -1,0 +1,519 @@
+{
+  "failed": 0,
+  "passed": 32,
+  "rows": [
+    {
+      "actual": {
+        "disposition": "ALLOW",
+        "result_code": "GATEWAY_PERMIT_CURRENT",
+        "stage": "GATEWAY_COMMIT"
+      },
+      "evidence_hash": "322727711955bf83640336003380252cc080bd47dc953fc8a521479d1e98bb0a",
+      "expected": {
+        "disposition": "ALLOW",
+        "result_code": "GATEWAY_PERMIT_CURRENT",
+        "stage": "GATEWAY_COMMIT"
+      },
+      "pass": true,
+      "title": "current permit exactly matches the protected action",
+      "vector_id": "H01_ALLOW_current_permit_exact_action"
+    },
+    {
+      "actual": {
+        "disposition": "HOLD",
+        "result_code": "FRESHNESS_STALE",
+        "stage": "FRESHNESS_CONTINUITY"
+      },
+      "evidence_hash": "0f2407bb6380283117f23bba68fc7563477a5bab63d867c6b09ba23b4e3e9545",
+      "expected": {
+        "disposition": "HOLD",
+        "result_code": "FRESHNESS_STALE",
+        "stage": "FRESHNESS_CONTINUITY"
+      },
+      "pass": true,
+      "title": "signed head exceeds maximum merge delay and fails closed to HOLD",
+      "vector_id": "H02_HOLD_stale_signed_head"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "PERMIT_EXPIRED",
+        "stage": "PERMIT_STATUS"
+      },
+      "evidence_hash": "8a775f5563cd33f99744e11fb6405cbdaa974d33a394cf717ee36865d9fddda4",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "PERMIT_EXPIRED",
+        "stage": "PERMIT_STATUS"
+      },
+      "pass": true,
+      "title": "expired permit fails closed to DENY",
+      "vector_id": "H03_DENY_expired_permit"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "ACTION_DIGEST_MISMATCH",
+        "stage": "ACTION_BINDING"
+      },
+      "evidence_hash": "43a801a20d21b561c9f22c4b4955cc93e0f9a0ba57b073feed8333714c192db5",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "ACTION_DIGEST_MISMATCH",
+        "stage": "ACTION_BINDING"
+      },
+      "pass": true,
+      "title": "permit digest is bound to a different action",
+      "vector_id": "H04_DENY_action_digest_mismatch"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "REPLAY_NONCE_MONOTONIC",
+        "stage": "ANTI_REPLAY"
+      },
+      "evidence_hash": "82bd8696c016385fae438a391f1401c115a07a53112a77fa44e10df31167c1cc",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "REPLAY_NONCE_MONOTONIC",
+        "stage": "ANTI_REPLAY"
+      },
+      "pass": true,
+      "title": "nonce and monotonic tuple has already been used for this audience",
+      "vector_id": "H05_DENY_replay_nonce_monotonic"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "AUDIENCE_MISMATCH",
+        "stage": "AUDIENCE_BINDING"
+      },
+      "evidence_hash": "6b70f39cabe77d2caaf93a02819630bac3e63820ae31ee74db2c738d1c27ce82",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "AUDIENCE_MISMATCH",
+        "stage": "AUDIENCE_BINDING"
+      },
+      "pass": true,
+      "title": "audience-bound permit is presented by a different tenant",
+      "vector_id": "H06_DENY_audience_mismatch"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "PERMIT_REVOKED",
+        "stage": "PERMIT_STATUS"
+      },
+      "evidence_hash": "d51f0fe2d5be55d939939e0f179dd0d008edd5d460dca670bc7ceffcc1c66222",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "PERMIT_REVOKED",
+        "stage": "PERMIT_STATUS"
+      },
+      "pass": true,
+      "title": "revoked permit identifier fails closed to DENY",
+      "vector_id": "H07_DENY_revoked_permit"
+    },
+    {
+      "actual": {
+        "disposition": "HOLD",
+        "result_code": "PROOF_CONTINUITY_MISSING",
+        "stage": "PROOF_CONTINUITY"
+      },
+      "evidence_hash": "4f043efb09e2a44e8a14e3adcdfb70ac68c914ba3898f8ef1c27fada54737c99",
+      "expected": {
+        "disposition": "HOLD",
+        "result_code": "PROOF_CONTINUITY_MISSING",
+        "stage": "PROOF_CONTINUITY"
+      },
+      "pass": true,
+      "title": "fresh signed head is present but continuity proof is missing",
+      "vector_id": "H08_HOLD_missing_continuity_proof"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "PERMIT_MISSING",
+        "stage": "PERMIT_STATUS"
+      },
+      "evidence_hash": "bd14a4edbb5b31d5ce5d7544fd1de0d8e865ffb5471ac850bd8e110e0d6d8d1a",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "PERMIT_MISSING",
+        "stage": "PERMIT_STATUS"
+      },
+      "pass": true,
+      "title": "protected action arrives without a permit",
+      "vector_id": "H09_DENY_missing_permit"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "PERMIT_SIGNATURE_INVALID",
+        "stage": "PERMIT_STATUS"
+      },
+      "evidence_hash": "5e6234734c1a6b424d79dc5c8572dadae29471655d09724ae3b0d6f712f8872a",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "PERMIT_SIGNATURE_INVALID",
+        "stage": "PERMIT_STATUS"
+      },
+      "pass": true,
+      "title": "permit signature no longer matches canonical bytes",
+      "vector_id": "H10_DENY_bad_permit_signature"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "CONTEXT_LABEL_MISMATCH",
+        "stage": "CANONICALIZATION"
+      },
+      "evidence_hash": "0dda9b5e6482ea3bd243c1f277066cbf4ffa0c68156e3a0a631a32a225319781",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "CONTEXT_LABEL_MISMATCH",
+        "stage": "CANONICALIZATION"
+      },
+      "pass": true,
+      "title": "permit context label is wrong even though fields are otherwise shaped correctly",
+      "vector_id": "H11_DENY_context_label_mismatch"
+    },
+    {
+      "actual": {
+        "disposition": "HOLD",
+        "result_code": "HEAD_CONFLICT",
+        "stage": "FRESHNESS_CONTINUITY"
+      },
+      "evidence_hash": "17e530fc42bfee08c2c4272ff18bfa78e3ce533bdf30df0697c72366041dc979",
+      "expected": {
+        "disposition": "HOLD",
+        "result_code": "HEAD_CONFLICT",
+        "stage": "FRESHNESS_CONTINUITY"
+      },
+      "pass": true,
+      "title": "current signed head reports a cross-log conflict",
+      "vector_id": "H12_HOLD_head_conflict"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "UNSUPPORTED_IMPLEMENTATION_HOOK",
+        "stage": "BOUNDARY_MAPPER"
+      },
+      "evidence_hash": "ca0f2e176c0ee1366be3b0241202eb7315e929ecb79fea411630ce296b103d5e",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "UNSUPPORTED_IMPLEMENTATION_HOOK",
+        "stage": "BOUNDARY_MAPPER"
+      },
+      "pass": true,
+      "title": "action is outside the configured public-eval gateway hook",
+      "vector_id": "H13_DENY_unsupported_implementation_hook"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "SIGNED_HEAD_ID_MISMATCH",
+        "stage": "FRESHNESS_CONTINUITY"
+      },
+      "evidence_hash": "f5b336258e0766c92d5c794ab8ed377109be8a92c3d88ef559d3cf7d32952181",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "SIGNED_HEAD_ID_MISMATCH",
+        "stage": "FRESHNESS_CONTINUITY"
+      },
+      "pass": true,
+      "title": "permit signed-head identifier does not match the protected action",
+      "vector_id": "H14_DENY_signed_head_id_mismatch"
+    },
+    {
+      "actual": {
+        "disposition": "HOLD",
+        "result_code": "WITNESS_COSIGNATURE_MISSING",
+        "stage": "FRESHNESS_CONTINUITY"
+      },
+      "evidence_hash": "c57d5d874b6ea58f3721f1dfbf1b8ca3e2290c2121302a05aa5ea07f93d1ef33",
+      "expected": {
+        "disposition": "HOLD",
+        "result_code": "WITNESS_COSIGNATURE_MISSING",
+        "stage": "FRESHNESS_CONTINUITY"
+      },
+      "pass": true,
+      "title": "signed head is otherwise valid but lacks the required witness cosignature",
+      "vector_id": "H15_HOLD_missing_witness_cosignature"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "SIGNED_HEAD_SIGNATURE_INVALID",
+        "stage": "FRESHNESS_CONTINUITY"
+      },
+      "evidence_hash": "de7a39b143670f4edb131231b2c5d367727f5932ff69c6f86cd38595269944a0",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "SIGNED_HEAD_SIGNATURE_INVALID",
+        "stage": "FRESHNESS_CONTINUITY"
+      },
+      "pass": true,
+      "title": "signed head signature is invalid after a root hash mutation",
+      "vector_id": "H16_DENY_signed_head_signature_invalid"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "UNSUPPORTED_PROTECTED_ACTION",
+        "stage": "BOUNDARY_MAPPER"
+      },
+      "evidence_hash": "08a2efcd4365d7db0e86da3c4ce4fa83535278f7c7fa3a324307b765a361e1c2",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "UNSUPPORTED_PROTECTED_ACTION",
+        "stage": "BOUNDARY_MAPPER"
+      },
+      "pass": true,
+      "title": "a signed permit cannot expand the public-eval boundary to a different destination",
+      "vector_id": "H17_DENY_boundary_destination_not_reviewed"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "PERMIT_NOT_YET_VALID",
+        "stage": "PERMIT_STATUS"
+      },
+      "evidence_hash": "5e71122e85ae3789d9d49d408d32ef255c755278e106032d14f632ce1bb8ee2a",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "PERMIT_NOT_YET_VALID",
+        "stage": "PERMIT_STATUS"
+      },
+      "pass": true,
+      "title": "permit issued in the future is denied",
+      "vector_id": "H18_DENY_permit_not_yet_valid"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "SIGNED_HEAD_FROM_FUTURE",
+        "stage": "FRESHNESS_CONTINUITY"
+      },
+      "evidence_hash": "0ecb187fe1650d7abc3a02c45f1a85878fe9287a7f2d4a9fb48df874f4463cfe",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "SIGNED_HEAD_FROM_FUTURE",
+        "stage": "FRESHNESS_CONTINUITY"
+      },
+      "pass": true,
+      "title": "signed head timestamp after verifier time is denied",
+      "vector_id": "H19_DENY_signed_head_from_future"
+    },
+    {
+      "actual": {
+        "disposition": "HOLD",
+        "result_code": "PROOF_CONTINUITY_MISMATCH",
+        "stage": "PROOF_CONTINUITY"
+      },
+      "evidence_hash": "dfb5c9561001737cbfdaff850c7324ac64b3295c61370ebeb1af5dc893af3200",
+      "expected": {
+        "disposition": "HOLD",
+        "result_code": "PROOF_CONTINUITY_MISMATCH",
+        "stage": "PROOF_CONTINUITY"
+      },
+      "pass": true,
+      "title": "continuity proof points at a different signed head and therefore holds",
+      "vector_id": "H20_HOLD_continuity_proof_mismatch"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "REPLAY_NONCE_MONOTONIC",
+        "stage": "ANTI_REPLAY"
+      },
+      "evidence_hash": "f0f14e49c50cf230739558f75bb81e5b7d9706a3bf83c14c632e868036993967",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "REPLAY_NONCE_MONOTONIC",
+        "stage": "ANTI_REPLAY"
+      },
+      "pass": true,
+      "title": "a fresh nonce still denies when the monotonic counter does not advance",
+      "vector_id": "H21_DENY_replay_counter_not_advanced"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "ICC_HEAD_ID_MISMATCH",
+        "stage": "ICC_BOUNDARY"
+      },
+      "evidence_hash": "8456d7840059c73f49bc20001a8303a05affb8df762cf32e9aab7d7e72479b38",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "ICC_HEAD_ID_MISMATCH",
+        "stage": "ICC_BOUNDARY"
+      },
+      "pass": true,
+      "title": "permit signed for another ICC head is denied before gateway commit",
+      "vector_id": "H22_DENY_icc_head_id_mismatch"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "LICENSE_TIER_MISMATCH",
+        "stage": "GLG_GATE"
+      },
+      "evidence_hash": "84864ad9fd802b9224b93ffbe4d9311b1edc5d68c4afb60a0094f342e7ef1c84",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "LICENSE_TIER_MISMATCH",
+        "stage": "GLG_GATE"
+      },
+      "pass": true,
+      "title": "permit signed for an unreviewed license tier is denied at the synthetic GLG gate",
+      "vector_id": "H23_DENY_license_tier_mismatch"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "JURISDICTIONAL_FINGERPRINT_MISMATCH",
+        "stage": "GLG_GATE"
+      },
+      "evidence_hash": "dcc4e785c4f481aadc1421f827201ddbb9f5b5f095ec06588983240148d38cea",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "JURISDICTIONAL_FINGERPRINT_MISMATCH",
+        "stage": "GLG_GATE"
+      },
+      "pass": true,
+      "title": "permit signed for another jurisdictional fingerprint is denied at the synthetic GLG gate",
+      "vector_id": "H24_DENY_jurisdictional_fingerprint_mismatch"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "ELV_ATTESTATION_MISMATCH",
+        "stage": "ELV_ATTESTATION"
+      },
+      "evidence_hash": "250b1bb39bd0e8902b9d0f3eb03d051a68b0447e2cb2b9b8a19aad0bdef54709",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "ELV_ATTESTATION_MISMATCH",
+        "stage": "ELV_ATTESTATION"
+      },
+      "pass": true,
+      "title": "permit carries a valid signature but the ELV measurement hash is not the reviewed one",
+      "vector_id": "H25_DENY_elv_attestation_mismatch"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "POLICY_EPOCH_MISMATCH",
+        "stage": "BOUNDARY_MAPPER"
+      },
+      "evidence_hash": "f67236c97d51a97741c557feed320a169ec8269ca83161cd60fa99dd771fc631",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "POLICY_EPOCH_MISMATCH",
+        "stage": "BOUNDARY_MAPPER"
+      },
+      "pass": true,
+      "title": "signed action outside the reviewed policy epoch is denied by the public boundary mapper",
+      "vector_id": "H26_DENY_policy_epoch_mismatch"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "PERMIT_REPLAY_TUPLE_MISMATCH",
+        "stage": "ANTI_REPLAY"
+      },
+      "evidence_hash": "da801f64c56004561ab86a5fec1168db78c32f56357cad262aef8686e0f417e6",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "PERMIT_REPLAY_TUPLE_MISMATCH",
+        "stage": "ANTI_REPLAY"
+      },
+      "pass": true,
+      "title": "permit nonce and monotonic counter must match the captured action tuple",
+      "vector_id": "H27_DENY_permit_replay_tuple_mismatch"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "PERMIT_REVOKED",
+        "stage": "PERMIT_STATUS"
+      },
+      "evidence_hash": "d51f0fe2d5be55d939939e0f179dd0d008edd5d460dca670bc7ceffcc1c66222",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "PERMIT_REVOKED",
+        "stage": "PERMIT_STATUS"
+      },
+      "pass": true,
+      "title": "policy revocation list denies an otherwise well-formed permit identifier",
+      "vector_id": "H28_DENY_policy_revoked_permit_id"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "ACTION_SHAPE_INVALID",
+        "stage": "BOUNDARY_MAPPER"
+      },
+      "evidence_hash": "f2fed8420db3b328acf372d0d4e360223297a7a5b20797df4ce3ad28ec3bbb6f",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "ACTION_SHAPE_INVALID",
+        "stage": "BOUNDARY_MAPPER"
+      },
+      "pass": true,
+      "title": "unknown protected-action fields are denied rather than silently ignored",
+      "vector_id": "H29_DENY_unknown_action_field"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "SIGNED_HEAD_SHAPE_INVALID",
+        "stage": "FRESHNESS_CONTINUITY"
+      },
+      "evidence_hash": "33d9a0e022a1fe564bac95737c74d07f254b04dd2af7461059bee79062b8ad62",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "SIGNED_HEAD_SHAPE_INVALID",
+        "stage": "FRESHNESS_CONTINUITY"
+      },
+      "pass": true,
+      "title": "signed-head shape errors deny deterministically before freshness evaluation",
+      "vector_id": "H30_DENY_signed_head_shape_invalid"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "POLICY_NOW_MISMATCH",
+        "stage": "PACKET_VALIDATION"
+      },
+      "evidence_hash": "c69c9620130c7e243c0e95f5a2d5fc8c3cfe5b75dbeaec4e4880a77068ef236e",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "POLICY_NOW_MISMATCH",
+        "stage": "PACKET_VALIDATION"
+      },
+      "pass": true,
+      "title": "packet time and validation-policy time must be the same review clock",
+      "vector_id": "H31_DENY_validation_policy_now_mismatch"
+    },
+    {
+      "actual": {
+        "disposition": "DENY",
+        "result_code": "PERMIT_SIGNATURE_INVALID",
+        "stage": "PERMIT_STATUS"
+      },
+      "evidence_hash": "3672b111f5a160806be5727e81b6e072b0030d52f6e9af879579626811573f74",
+      "expected": {
+        "disposition": "DENY",
+        "result_code": "PERMIT_SIGNATURE_INVALID",
+        "stage": "PERMIT_STATUS"
+      },
+      "pass": true,
+      "title": "signature metadata mismatch denies even when the surrounding fields are shaped correctly",
+      "vector_id": "H32_DENY_signature_algorithm_mismatch"
+    }
+  ],
+  "total": 32
+}

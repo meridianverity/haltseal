@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HALTSEAL evidence-only IAL record public-eval shape",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "context_label": {"type": "string", "minLength": 1},
+    "event_type": {"enum": ["ALLOW", "HOLD", "QUARANTINE", "DENY", "ESCALATE"]},
+    "ts": {"type": ["string", "null"]},
+    "result_code": {"type": "string", "minLength": 1},
+    "stage": {"type": "string", "minLength": 1},
+    "disposition": {"enum": ["ALLOW", "HOLD", "QUARANTINE", "DENY", "ESCALATE"]},
+    "action_id": {"type": ["string", "null"]},
+    "action_digest": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "policy_epoch": {"type": ["string", "null"]},
+    "permit_id": {"type": ["string", "null"]},
+    "icc_head_id": {"type": ["string", "null"]},
+    "signed_head_id": {"type": ["string", "null"]},
+    "license_tier_id": {"type": ["string", "null"]},
+    "jurisdictional_fingerprint": {"type": ["string", "null"]},
+    "elv_measurement_hash": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "implementation_hook": {"type": ["string", "null"]},
+    "audience": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {"type": ["string", "null"]},
+        "tenant_id": {"type": ["string", "null"]},
+        "mission_id": {"type": ["string", "null"]}
+      },
+      "required": ["agent_id", "tenant_id", "mission_id"]
+    },
+    "public_boundary": {"type": "string", "minLength": 1},
+    "evidence_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "evidence_sig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alg": {"type": "string", "minLength": 1},
+        "kid": {"type": "string", "minLength": 1},
+        "sig": {"type": "string", "pattern": "^[A-Za-z0-9_-]+$"}
+      },
+      "required": ["alg", "kid", "sig"]
+    }
+  },
+  "required": [
+    "context_label",
+    "event_type",
+    "ts",
+    "result_code",
+    "stage",
+    "disposition",
+    "action_id",
+    "action_digest",
+    "policy_epoch",
+    "permit_id",
+    "icc_head_id",
+    "signed_head_id",
+    "license_tier_id",
+    "jurisdictional_fingerprint",
+    "elv_measurement_hash",
+    "implementation_hook",
+    "audience",
+    "public_boundary",
+    "evidence_hash",
+    "evidence_sig"
+  ]
+}

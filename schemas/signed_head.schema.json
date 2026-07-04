@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HALTSEAL signed head public-eval shape",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "signed_head_id": {"type": "string", "minLength": 1},
+    "log_id": {"type": "string", "minLength": 1},
+    "tree_size": {"type": "integer", "minimum": 0},
+    "root_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "timestamp": {"type": "string", "minLength": 1},
+    "witness_cosigs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "witness_id": {"type": "string", "minLength": 1},
+          "sig": {"type": "string", "minLength": 1}
+        },
+        "required": ["witness_id", "sig"]
+      }
+    },
+    "status": {"enum": ["ok", "conflict"]},
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alg": {"type": "string", "minLength": 1},
+        "kid": {"type": "string", "minLength": 1},
+        "sig": {"type": "string", "pattern": "^[A-Za-z0-9_-]+$"}
+      },
+      "required": ["alg", "kid", "sig"]
+    }
+  },
+  "required": ["signed_head_id", "log_id", "tree_size", "root_hash", "timestamp", "witness_cosigs", "signature"]
+}

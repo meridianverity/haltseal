@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HALTSEAL verifier result public-eval shape",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "vector_id": {"type": ["string", "null"]},
+    "disposition": {"enum": ["ALLOW", "HOLD", "QUARANTINE", "DENY", "ESCALATE"]},
+    "result_code": {"type": "string", "minLength": 1},
+    "stage": {"type": "string", "minLength": 1},
+    "evidence": {"type": "object"}
+  },
+  "required": ["vector_id", "disposition", "result_code", "stage", "evidence"]
+}

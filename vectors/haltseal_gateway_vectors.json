@@ -1,0 +1,3055 @@
+[
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "ALLOW",
+      "result_code": "GATEWAY_PERMIT_CURRENT",
+      "stage": "GATEWAY_COMMIT"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "9o9KChZTkLeiZ5-vDiV1uNiMRexN30czKsy0z5nMVcw"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "current permit exactly matches the protected action",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H01_ALLOW_current_permit_exact_action"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "HOLD",
+      "result_code": "FRESHNESS_STALE",
+      "stage": "FRESHNESS_CONTINUITY"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "9o9KChZTkLeiZ5-vDiV1uNiMRexN30czKsy0z5nMVcw"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "_P08aGHEcqCNmFeuI-JG1hunGGk9i4fEZp1Ilxyfg0M"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:58:00Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "signed head exceeds maximum merge delay and fails closed to HOLD",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H02_HOLD_stale_signed_head"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "PERMIT_EXPIRED",
+      "stage": "PERMIT_STATUS"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T11:59:59Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:40:00Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "61EgG-FqD6-OQ_EP1qAcf_pJ4cMf1uRt_B04S6N5dBE"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "expired permit fails closed to DENY",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H03_DENY_expired_permit"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "ACTION_DIGEST_MISMATCH",
+      "stage": "ACTION_BINDING"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "b818fdf18d99eee4bc413eaccc3da7a6a0aa58255a2b364689409e98e4ca6c09",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "FkhKqEYSrcFa6ppu7dkLwmqxNZbKn9gg7KyXd55fc5k"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "permit digest is bound to a different action",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H04_DENY_action_digest_mismatch"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "REPLAY_NONCE_MONOTONIC",
+      "stage": "ANTI_REPLAY"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "9o9KChZTkLeiZ5-vDiV1uNiMRexN30czKsy0z5nMVcw"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "preexisting_replay_state": [
+      {
+        "audience_key": "tenant-456::agent-123::mission-789",
+        "monotonic_counter": 118,
+        "nonce": 4259182012
+      }
+    ],
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "nonce and monotonic tuple has already been used for this audience",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H05_DENY_replay_nonce_monotonic"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "AUDIENCE_MISMATCH",
+      "stage": "AUDIENCE_BINDING"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-999"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "3Nqb67uM_9d_oCQ4wPrYF5yxqHUglQ4Joz1iqTNjM4M"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "audience-bound permit is presented by a different tenant",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H06_DENY_audience_mismatch"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "PERMIT_REVOKED",
+      "stage": "PERMIT_STATUS"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": true,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "SFyZd6cI1-7CrEHQTf3AlP3mTPAuVQAcofvlubh7OAs"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "revoked permit identifier fails closed to DENY",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H07_DENY_revoked_permit"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": false
+    },
+    "expected": {
+      "disposition": "HOLD",
+      "result_code": "PROOF_CONTINUITY_MISSING",
+      "stage": "PROOF_CONTINUITY"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "9o9KChZTkLeiZ5-vDiV1uNiMRexN30czKsy0z5nMVcw"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "fresh signed head is present but continuity proof is missing",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H08_HOLD_missing_continuity_proof"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "PERMIT_MISSING",
+      "stage": "PERMIT_STATUS"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": null,
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "protected action arrives without a permit",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H09_DENY_missing_permit"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "PERMIT_SIGNATURE_INVALID",
+      "stage": "PERMIT_STATUS"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "tampered-public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "9o9KChZTkLeiZ5-vDiV1uNiMRexN30czKsy0z5nMVcw"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "permit signature no longer matches canonical bytes",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H10_DENY_bad_permit_signature"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "CONTEXT_LABEL_MISMATCH",
+      "stage": "CANONICALIZATION"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/wrong-context",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "0f5ZpV2gNMoJ8xPNamdXsDeyA2O0MUtMTdkvCaOCEg8"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "permit context label is wrong even though fields are otherwise shaped correctly",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H11_DENY_context_label_mismatch"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "HOLD",
+      "result_code": "HEAD_CONFLICT",
+      "stage": "FRESHNESS_CONTINUITY"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "9o9KChZTkLeiZ5-vDiV1uNiMRexN30czKsy0z5nMVcw"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "deUMXOzUAODk26n3Qf6CJIyJGklcqbrG58auaTYV2pY"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "conflict",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "current signed head reports a cross-log conflict",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H12_HOLD_head_conflict"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "unreviewed_private_hook",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "UNSUPPORTED_IMPLEMENTATION_HOOK",
+      "stage": "BOUNDARY_MAPPER"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "58ad247377e06690dde0b1581dfdbe0176d8f21ec7cd0a02b9f472f308446f47",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "Wi5gJuh0PwAQOvOwoMGwCy86Gg0a4-bCqYxk-epQtYU"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "action is outside the configured public-eval gateway hook",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H13_DENY_unsupported_implementation_hook"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "SIGNED_HEAD_ID_MISMATCH",
+      "stage": "FRESHNESS_CONTINUITY"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "jsvjW1cAJx6JtFHBBWGMsHu_ktpui4b_-jRLfJmHItk"
+      },
+      "signed_head_id": "shd_wrong_head"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "permit signed-head identifier does not match the protected action",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H14_DENY_signed_head_id_mismatch"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "HOLD",
+      "result_code": "WITNESS_COSIGNATURE_MISSING",
+      "stage": "FRESHNESS_CONTINUITY"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "9o9KChZTkLeiZ5-vDiV1uNiMRexN30czKsy0z5nMVcw"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "Qi7VSQYEpdLljaMOTGHCwW9rhqoEzA_S3kbQrsasG6c"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": []
+    },
+    "title": "signed head is otherwise valid but lacks the required witness cosignature",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H15_HOLD_missing_witness_cosignature"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "SIGNED_HEAD_SIGNATURE_INVALID",
+      "stage": "FRESHNESS_CONTINUITY"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "9o9KChZTkLeiZ5-vDiV1uNiMRexN30czKsy0z5nMVcw"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "bad0000000000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "signed head signature is invalid after a root hash mutation",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H16_DENY_signed_head_signature_invalid"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/other-tool",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "UNSUPPORTED_PROTECTED_ACTION",
+      "stage": "BOUNDARY_MAPPER"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "f0d3108d327e5b1da473895dbdea5e8f052d49240a08b52702b5603e10a50f5c",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "q9C18Cxo7to1q6coVQEgLsuJU4piULk1NQxVmWI6wmU"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "a signed permit cannot expand the public-eval boundary to a different destination",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H17_DENY_boundary_destination_not_reviewed"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "PERMIT_NOT_YET_VALID",
+      "stage": "PERMIT_STATUS"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:05:00Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T12:01:00Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "SIuVi_cy9smkABnh0nMWPTTpIZP-KcxLorMU9HnrWBc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "permit issued in the future is denied",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H18_DENY_permit_not_yet_valid"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "SIGNED_HEAD_FROM_FUTURE",
+      "stage": "FRESHNESS_CONTINUITY"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "9o9KChZTkLeiZ5-vDiV1uNiMRexN30czKsy0z5nMVcw"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "ZcI8Y9wf56fmJiXyQ5kkwpwUgvGwaUMolZIplNRxRrM"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T12:00:30Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "signed head timestamp after verifier time is denied",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H19_DENY_signed_head_from_future"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_wrong_current",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "HOLD",
+      "result_code": "PROOF_CONTINUITY_MISMATCH",
+      "stage": "PROOF_CONTINUITY"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "9o9KChZTkLeiZ5-vDiV1uNiMRexN30czKsy0z5nMVcw"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "continuity proof points at a different signed head and therefore holds",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H20_HOLD_continuity_proof_mismatch"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182013,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "REPLAY_NONCE_MONOTONIC",
+      "stage": "ANTI_REPLAY"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "357e9457f2c9bfeb8df54fa27b6dbea2097d56f9be3cbb6c3963f86f77c11782",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182013,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "tMbrrg9CypJLSegN1CE-dD6UWF8y-_IyoAKNjmcK5ik"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "preexisting_replay_state": [
+      {
+        "audience_key": "tenant-456::agent-123::mission-789",
+        "monotonic_counter": 118,
+        "nonce": 1
+      }
+    ],
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "a fresh nonce still denies when the monotonic counter does not advance",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H21_DENY_replay_counter_not_advanced"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "ICC_HEAD_ID_MISMATCH",
+      "stage": "ICC_BOUNDARY"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_unreviewed_private_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "kh9x82mDFtqdwqQps2MNBqmuT9irdNjQhrM7sqibr4c"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "permit signed for another ICC head is denied before gateway commit",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H22_DENY_icc_head_id_mismatch"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "LICENSE_TIER_MISMATCH",
+      "stage": "GLG_GATE"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "private-tier",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "_XkT0y1MKY8PV04JPbpT43xk6-JrKQlYNiO3sMjHVy4"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "permit signed for an unreviewed license tier is denied at the synthetic GLG gate",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H23_DENY_license_tier_mismatch"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "JURISDICTIONAL_FINGERPRINT_MISMATCH",
+      "stage": "GLG_GATE"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-OTHER-JURISDICTION",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "NUR3e_QPrhQcOs65Ri8cp09hpz2tl7dIVX2_AugJfkQ"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "permit signed for another jurisdictional fingerprint is denied at the synthetic GLG gate",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H24_DENY_jurisdictional_fingerprint_mismatch"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "ELV_ATTESTATION_MISMATCH",
+      "stage": "ELV_ATTESTATION"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "GYTjfq_JWWTbor1wfm-dm8QoVQIGMbJjoJtJjyJ9Ing"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "permit carries a valid signature but the ELV measurement hash is not the reviewed one",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H25_DENY_elv_attestation_mismatch"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T13:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "POLICY_EPOCH_MISMATCH",
+      "stage": "BOUNDARY_MAPPER"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "207af39f9951a0f585962691cb17ea449b5e3e06024bcf9751731825337c5959",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "8YV2oilaL98NfR5yXPQvhCPVLZlcLoYmfjVkMnK2MYI"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "signed action outside the reviewed policy epoch is denied by the public boundary mapper",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H26_DENY_policy_epoch_mismatch"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "PERMIT_REPLAY_TUPLE_MISMATCH",
+      "stage": "ANTI_REPLAY"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182112,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "IjaQShlCV4LJ6hGLJNlhvPiaT3YIGvcnAxybburuNgs"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "permit nonce and monotonic counter must match the captured action tuple",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H27_DENY_permit_replay_tuple_mismatch"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "PERMIT_REVOKED",
+      "stage": "PERMIT_STATUS"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "9o9KChZTkLeiZ5-vDiV1uNiMRexN30czKsy0z5nMVcw"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "policy revocation list denies an otherwise well-formed permit identifier",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": [
+        "permit_7f3c8a2d_public_eval"
+      ]
+    },
+    "vector_id": "H28_DENY_policy_revoked_permit_id"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456",
+      "unreviewed_effect": "attempted-expansion"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "ACTION_SHAPE_INVALID",
+      "stage": "BOUNDARY_MAPPER"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "1e8def0a38c71c80105f2ca7d20e48eb51afa862d752539eadfd9f41d09e1394",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "6L3s3td1VgphsKBqFAyMfiGDqzu8_f8ILhyI5qB3qgE"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "unknown protected-action fields are denied rather than silently ignored",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H29_DENY_unknown_action_field"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "SIGNED_HEAD_SHAPE_INVALID",
+      "stage": "FRESHNESS_CONTINUITY"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "9o9KChZTkLeiZ5-vDiV1uNiMRexN30czKsy0z5nMVcw"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "pBmVm_utM96bcQ3qXywHNpm1EpGGJOAPJi9dOPLw-nw"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "signed-head shape errors deny deterministically before freshness evaluation",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H30_DENY_signed_head_shape_invalid"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "POLICY_NOW_MISMATCH",
+      "stage": "PACKET_VALIDATION"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "9o9KChZTkLeiZ5-vDiV1uNiMRexN30czKsy0z5nMVcw"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "packet time and validation-policy time must be the same review clock",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:01Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H31_DENY_validation_policy_now_mismatch"
+  },
+  {
+    "action": {
+      "action_id": "act_external_tool_sensitive_payload_001",
+      "action_type": "external_effect.network_egress",
+      "agent_id": "agent-123",
+      "destination": "https://example.invalid/external-tool/send-sensitive-payload",
+      "implementation_hook": "network_egress_gateway",
+      "method": "POST",
+      "mission_id": "mission-789",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "payload_sha256": "3f9d3c4a22e52bca663d8f6f7c1ca7ef5f067aac2c6804764347b7a8e4386f53",
+      "policy_epoch": "2026-07-04T12:00:00Z",
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "tenant_id": "tenant-456"
+    },
+    "continuity_proof": {
+      "current_signed_head_id": "shd_20260704_115945_f5abd031",
+      "previous_signed_head_id": "shd_20260704_115900_prev",
+      "type": "append_only_evolution_synthetic",
+      "verified": true
+    },
+    "expected": {
+      "disposition": "DENY",
+      "result_code": "PERMIT_SIGNATURE_INVALID",
+      "stage": "PERMIT_STATUS"
+    },
+    "now": "2026-07-04T12:00:00Z",
+    "permit": {
+      "action_digest": "73f71ea1e534afa07a260f28d06618e4988960438873ff25e51dd5457d900696",
+      "audience": {
+        "agent_id": "agent-123",
+        "mission_id": "mission-789",
+        "tenant_id": "tenant-456"
+      },
+      "context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "elv_attestation_ref": {
+        "cert_chain": [
+          "synthetic-cert-chain"
+        ],
+        "measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+        "quote": "synthetic-attestation-quote"
+      },
+      "expiration_ts": "2026-07-04T12:04:40Z",
+      "icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "issued_ts": "2026-07-04T11:59:40Z",
+      "jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "license_tier_id": "public-eval",
+      "monotonic_counter": 118,
+      "nonce": 4259182012,
+      "permit_id": "permit_7f3c8a2d_public_eval",
+      "revoked": false,
+      "signature": {
+        "alg": "HS999-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "9o9KChZTkLeiZ5-vDiV1uNiMRexN30czKsy0z5nMVcw"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031"
+    },
+    "signed_head": {
+      "log_id": "haltseal-synthetic-log-main",
+      "root_hash": "f5abd03100000000000000000000000000000000000000000000000000000000",
+      "signature": {
+        "alg": "HS256-SYNTHETIC",
+        "kid": "haltseal-public-eval-key-2026-07-04-v3",
+        "sig": "G19PjCasI_quk2tvGDLjSxR4s4-f29EjOnHHfgwjTJc"
+      },
+      "signed_head_id": "shd_20260704_115945_f5abd031",
+      "status": "ok",
+      "timestamp": "2026-07-04T11:59:45Z",
+      "tree_size": 1820394,
+      "witness_cosigs": [
+        {
+          "sig": "witness-a-demo-cosig",
+          "witness_id": "synthetic-witness-a"
+        }
+      ]
+    },
+    "title": "signature metadata mismatch denies even when the surrounding fields are shaped correctly",
+    "validation_policy": {
+      "mmd_seconds": 60,
+      "now": "2026-07-04T12:00:00Z",
+      "public_boundary": "synthetic evaluation only; no production SDK; no patent license",
+      "require_continuity_proof": true,
+      "require_elv_attestation_ref": true,
+      "required_context_label": "HALTSEAL/permit/v0.3/public-eval",
+      "required_elv_measurement_hash": "95ee41ac00000000000000000000000000000000000000000000000000000000",
+      "required_icc_head_id": "icc_head_2f0ac9e1_public_eval",
+      "required_jurisdictional_fingerprint": "SYNTHETIC-PUBLIC-EVAL",
+      "required_license_tier_id": "public-eval",
+      "required_policy_epoch": "2026-07-04T12:00:00Z",
+      "required_witness_cosigs": 1,
+      "revoked_permit_ids": []
+    },
+    "vector_id": "H32_DENY_signature_algorithm_mismatch"
+  }
+]

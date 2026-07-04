@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "audience": {
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "mission_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "tenant_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "agent_id",
+        "tenant_id",
+        "mission_id"
+      ],
+      "type": "object"
+    },
+    "context_label": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "elv_attestation_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "cert_chain": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "measurement_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "quote": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "measurement_hash",
+        "quote",
+        "cert_chain"
+      ],
+      "type": "object"
+    },
+    "expiration_ts": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "icc_head_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "issued_ts": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "jurisdictional_fingerprint": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "license_tier_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "monotonic_counter": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "nonce": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "permit_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "revoked": {
+      "type": "boolean"
+    },
+    "signature": {
+      "additionalProperties": false,
+      "properties": {
+        "alg": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "kid": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sig": {
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "alg",
+        "kid",
+        "sig"
+      ],
+      "type": "object"
+    },
+    "signed_head_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_label",
+    "permit_id",
+    "audience",
+    "issued_ts",
+    "expiration_ts",
+    "icc_head_id",
+    "signed_head_id",
+    "license_tier_id",
+    "jurisdictional_fingerprint",
+    "nonce",
+    "monotonic_counter",
+    "action_digest",
+    "revoked",
+    "elv_attestation_ref",
+    "signature"
+  ],
+  "title": "HALTSEAL permit token public-eval shape",
+  "type": "object"
+}

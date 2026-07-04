@@ -1,0 +1,162 @@
+{
+  "H01_ALLOW_current_permit_exact_action": {
+    "disposition": "ALLOW",
+    "result_code": "GATEWAY_PERMIT_CURRENT",
+    "stage": "GATEWAY_COMMIT"
+  },
+  "H02_HOLD_stale_signed_head": {
+    "disposition": "HOLD",
+    "result_code": "FRESHNESS_STALE",
+    "stage": "FRESHNESS_CONTINUITY"
+  },
+  "H03_DENY_expired_permit": {
+    "disposition": "DENY",
+    "result_code": "PERMIT_EXPIRED",
+    "stage": "PERMIT_STATUS"
+  },
+  "H04_DENY_action_digest_mismatch": {
+    "disposition": "DENY",
+    "result_code": "ACTION_DIGEST_MISMATCH",
+    "stage": "ACTION_BINDING"
+  },
+  "H05_DENY_replay_nonce_monotonic": {
+    "disposition": "DENY",
+    "result_code": "REPLAY_NONCE_MONOTONIC",
+    "stage": "ANTI_REPLAY"
+  },
+  "H06_DENY_audience_mismatch": {
+    "disposition": "DENY",
+    "result_code": "AUDIENCE_MISMATCH",
+    "stage": "AUDIENCE_BINDING"
+  },
+  "H07_DENY_revoked_permit": {
+    "disposition": "DENY",
+    "result_code": "PERMIT_REVOKED",
+    "stage": "PERMIT_STATUS"
+  },
+  "H08_HOLD_missing_continuity_proof": {
+    "disposition": "HOLD",
+    "result_code": "PROOF_CONTINUITY_MISSING",
+    "stage": "PROOF_CONTINUITY"
+  },
+  "H09_DENY_missing_permit": {
+    "disposition": "DENY",
+    "result_code": "PERMIT_MISSING",
+    "stage": "PERMIT_STATUS"
+  },
+  "H10_DENY_bad_permit_signature": {
+    "disposition": "DENY",
+    "result_code": "PERMIT_SIGNATURE_INVALID",
+    "stage": "PERMIT_STATUS"
+  },
+  "H11_DENY_context_label_mismatch": {
+    "disposition": "DENY",
+    "result_code": "CONTEXT_LABEL_MISMATCH",
+    "stage": "CANONICALIZATION"
+  },
+  "H12_HOLD_head_conflict": {
+    "disposition": "HOLD",
+    "result_code": "HEAD_CONFLICT",
+    "stage": "FRESHNESS_CONTINUITY"
+  },
+  "H13_DENY_unsupported_implementation_hook": {
+    "disposition": "DENY",
+    "result_code": "UNSUPPORTED_IMPLEMENTATION_HOOK",
+    "stage": "BOUNDARY_MAPPER"
+  },
+  "H14_DENY_signed_head_id_mismatch": {
+    "disposition": "DENY",
+    "result_code": "SIGNED_HEAD_ID_MISMATCH",
+    "stage": "FRESHNESS_CONTINUITY"
+  },
+  "H15_HOLD_missing_witness_cosignature": {
+    "disposition": "HOLD",
+    "result_code": "WITNESS_COSIGNATURE_MISSING",
+    "stage": "FRESHNESS_CONTINUITY"
+  },
+  "H16_DENY_signed_head_signature_invalid": {
+    "disposition": "DENY",
+    "result_code": "SIGNED_HEAD_SIGNATURE_INVALID",
+    "stage": "FRESHNESS_CONTINUITY"
+  },
+  "H17_DENY_boundary_destination_not_reviewed": {
+    "disposition": "DENY",
+    "result_code": "UNSUPPORTED_PROTECTED_ACTION",
+    "stage": "BOUNDARY_MAPPER"
+  },
+  "H18_DENY_permit_not_yet_valid": {
+    "disposition": "DENY",
+    "result_code": "PERMIT_NOT_YET_VALID",
+    "stage": "PERMIT_STATUS"
+  },
+  "H19_DENY_signed_head_from_future": {
+    "disposition": "DENY",
+    "result_code": "SIGNED_HEAD_FROM_FUTURE",
+    "stage": "FRESHNESS_CONTINUITY"
+  },
+  "H20_HOLD_continuity_proof_mismatch": {
+    "disposition": "HOLD",
+    "result_code": "PROOF_CONTINUITY_MISMATCH",
+    "stage": "PROOF_CONTINUITY"
+  },
+  "H21_DENY_replay_counter_not_advanced": {
+    "disposition": "DENY",
+    "result_code": "REPLAY_NONCE_MONOTONIC",
+    "stage": "ANTI_REPLAY"
+  },
+  "H22_DENY_icc_head_id_mismatch": {
+    "disposition": "DENY",
+    "result_code": "ICC_HEAD_ID_MISMATCH",
+    "stage": "ICC_BOUNDARY"
+  },
+  "H23_DENY_license_tier_mismatch": {
+    "disposition": "DENY",
+    "result_code": "LICENSE_TIER_MISMATCH",
+    "stage": "GLG_GATE"
+  },
+  "H24_DENY_jurisdictional_fingerprint_mismatch": {
+    "disposition": "DENY",
+    "result_code": "JURISDICTIONAL_FINGERPRINT_MISMATCH",
+    "stage": "GLG_GATE"
+  },
+  "H25_DENY_elv_attestation_mismatch": {
+    "disposition": "DENY",
+    "result_code": "ELV_ATTESTATION_MISMATCH",
+    "stage": "ELV_ATTESTATION"
+  },
+  "H26_DENY_policy_epoch_mismatch": {
+    "disposition": "DENY",
+    "result_code": "POLICY_EPOCH_MISMATCH",
+    "stage": "BOUNDARY_MAPPER"
+  },
+  "H27_DENY_permit_replay_tuple_mismatch": {
+    "disposition": "DENY",
+    "result_code": "PERMIT_REPLAY_TUPLE_MISMATCH",
+    "stage": "ANTI_REPLAY"
+  },
+  "H28_DENY_policy_revoked_permit_id": {
+    "disposition": "DENY",
+    "result_code": "PERMIT_REVOKED",
+    "stage": "PERMIT_STATUS"
+  },
+  "H29_DENY_unknown_action_field": {
+    "disposition": "DENY",
+    "result_code": "ACTION_SHAPE_INVALID",
+    "stage": "BOUNDARY_MAPPER"
+  },
+  "H30_DENY_signed_head_shape_invalid": {
+    "disposition": "DENY",
+    "result_code": "SIGNED_HEAD_SHAPE_INVALID",
+    "stage": "FRESHNESS_CONTINUITY"
+  },
+  "H31_DENY_validation_policy_now_mismatch": {
+    "disposition": "DENY",
+    "result_code": "POLICY_NOW_MISMATCH",
+    "stage": "PACKET_VALIDATION"
+  },
+  "H32_DENY_signature_algorithm_mismatch": {
+    "disposition": "DENY",
+    "result_code": "PERMIT_SIGNATURE_INVALID",
+    "stage": "PERMIT_STATUS"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HALTSEAL gateway review packet public-eval shape",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "vector_id": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "now": {"type": "string", "minLength": 1},
+    "action": {"type": "object"},
+    "permit": {"type": ["object", "null"]},
+    "signed_head": {"type": "object"},
+    "continuity_proof": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {"type": "string", "minLength": 1},
+        "previous_signed_head_id": {"type": "string", "minLength": 1},
+        "current_signed_head_id": {"type": "string", "minLength": 1},
+        "verified": {"type": "boolean"}
+      },
+      "required": ["type", "previous_signed_head_id", "current_signed_head_id", "verified"]
+    },
+    "validation_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "now": {"type": "string", "minLength": 1},
+        "mmd_seconds": {"type": "integer", "minimum": 0},
+        "required_context_label": {"type": "string", "minLength": 1},
+        "required_policy_epoch": {"type": "string", "minLength": 1},
+        "required_icc_head_id": {"type": "string", "minLength": 1},
+        "required_license_tier_id": {"type": "string", "minLength": 1},
+        "required_jurisdictional_fingerprint": {"type": "string", "minLength": 1},
+        "required_elv_measurement_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "require_elv_attestation_ref": {"type": "boolean"},
+        "required_witness_cosigs": {"type": "integer", "minimum": 0},
+        "require_continuity_proof": {"type": "boolean"},
+        "revoked_permit_ids": {"type": "array", "items": {"type": "string"}},
+        "public_boundary": {"type": "string", "minLength": 1}
+      },
+      "required": [
+        "now",
+        "mmd_seconds",
+        "required_context_label",
+        "required_policy_epoch",
+        "required_icc_head_id",
+        "required_license_tier_id",
+        "required_jurisdictional_fingerprint",
+        "required_elv_measurement_hash",
+        "require_elv_attestation_ref",
+        "required_witness_cosigs",
+        "require_continuity_proof",
+        "revoked_permit_ids",
+        "public_boundary"
+      ]
+    },
+    "preexisting_replay_state": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "audience_key": {"type": "string", "minLength": 1},
+          "nonce": {"type": "integer", "minimum": 0},
+          "monotonic_counter": {"type": "integer", "minimum": 0}
+        },
+        "required": ["audience_key", "nonce", "monotonic_counter"]
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "disposition": {"enum": ["ALLOW", "HOLD", "QUARANTINE", "DENY", "ESCALATE"]},
+        "result_code": {"type": "string", "minLength": 1},
+        "stage": {"type": "string", "minLength": 1}
+      },
+      "required": ["disposition", "result_code", "stage"]
+    }
+  },
+  "required": ["vector_id", "title", "now", "action", "permit", "signed_head", "continuity_proof", "validation_policy", "expected"]
+}

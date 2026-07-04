@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "haltseal-gateway-proof-pack"
+version = "0.3.0"
+description = "HALTSEAL Gateway Proof Pack public-safe synthetic evaluation artifact"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Source-available evaluation license; see LICENSE-EVALUATION.md"}
+authors = [{name = "Meridian Verity Group"}]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Topic :: Security",
+  "Intended Audience :: Developers",
+]
+
+[tool.pytest.ini_options]
+addopts = "-q -p no:cacheprovider"
+testpaths = ["tests"]

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HALTSEAL protected action public-eval shape",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "action_id": {"type": "string", "minLength": 1},
+    "action_type": {"type": "string", "minLength": 1},
+    "method": {"type": "string", "minLength": 1},
+    "destination": {"type": "string", "minLength": 1},
+    "tenant_id": {"type": "string", "minLength": 1},
+    "agent_id": {"type": "string", "minLength": 1},
+    "mission_id": {"type": "string", "minLength": 1},
+    "payload_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "policy_epoch": {"type": "string", "minLength": 1},
+    "implementation_hook": {"type": "string", "minLength": 1},
+    "signed_head_id": {"type": "string", "minLength": 1},
+    "nonce": {"type": "integer", "minimum": 0},
+    "monotonic_counter": {"type": "integer", "minimum": 0}
+  },
+  "required": [
+    "action_id",
+    "action_type",
+    "method",
+    "destination",
+    "tenant_id",
+    "agent_id",
+    "mission_id",
+    "payload_sha256",
+    "policy_epoch",
+    "implementation_hook",
+    "signed_head_id",
+    "nonce",
+    "monotonic_counter"
+  ]
+}
