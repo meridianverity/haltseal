@@ -1,8 +1,10 @@
-# HALTSEAL Gateway Proof Pack v0.3.1-proof-receipt
+# HALTSEAL Gateway Proof Pack v0.3.2-hardened-eval
 
-This release keeps the **v0.3.0 public evaluation boundary** intact and adds a portable **HALTSEAL Gateway Proof Receipt** layer for security review, legal intake, procurement routing, internal champion forwarding, and written-scope diligence handoff.
+This release provides a **public-safe, synthetic, runnable Gateway Proof Pack** for HALTSEAL permit-before-action review at one protected external-effect boundary.
 
-The underlying public evaluation remains intentionally narrow:
+It keeps the narrow v0.3.0 public evaluation boundary intact and adds the v0.3.2 hardened review layer: proof receipt, transparency bundle, deterministic Ed25519 proof profile, independent recomputation, release-artifact verification, strict manifest/source-tree locking, and full QA preflight.
+
+The public evaluation remains intentionally narrow:
 
 ```text
 One protected action.
@@ -14,96 +16,101 @@ No production SDK.
 No patent license.
 ```
 
-v0.3.1-proof-receipt adds:
+## What this release demonstrates
+
+The packet demonstrates a gateway control path for one protected action:
 
 ```text
-Proof receipt JSON.
-One-page Markdown receipt.
-Copy-paste procurement / diligence block.
-Receipt schema.
-Receipt verifier.
-Receipt consistency tests.
-Release-package hygiene.
+canonical action representation
+→ action_digest
+→ short-lived audience-bound permit check
+→ signed-head freshness / continuity posture
+→ replay and policy-lock checks
+→ ALLOW, HOLD, or fail-closed DENY before action
+```
+
+It is designed for public technical review, security review, procurement intake, standards-adjacent boundary discussion, and written-scope diligence routing.
+
+## Hardened materials included
+
+```text
+32 deterministic public-eval vectors.
+47 pytest checks.
+Portable HALTSEAL Gateway Proof Receipt.
+Receipt JSON, Markdown, and copy-paste diligence block.
+Receipt schema and verifier.
+Merkle transparency bundle with selected inclusion proofs.
+Deterministic Ed25519 public-eval proof profile.
+Standard-library independent recomputation checker.
+Fresh-archive release verifier.
+Regenerated manifest and source-tree locks.
+GitHub workflow, issue template, PR template, and release hygiene checks.
 ```
 
 ## Release assets
 
 ```text
-haltseal-gateway-proof-pack-v0.3.1-proof-receipt.zip
-haltseal-gateway-proof-pack-v0.3.1-proof-receipt.zip.sha256.txt
+haltseal-gateway-proof-pack-v0.3.2-hardened-eval.zip
+haltseal-gateway-proof-pack-v0.3.2-hardened-eval.zip.sha256.txt
 ```
 
 ## Recommended verification
 
 ```bash
-sha256sum -c haltseal-gateway-proof-pack-v0.3.1-proof-receipt.zip.sha256.txt
-unzip haltseal-gateway-proof-pack-v0.3.1-proof-receipt.zip
-cd haltseal-gateway-proof-pack-v0.3.1-proof-receipt
+sha256sum -c haltseal-gateway-proof-pack-v0.3.2-hardened-eval.zip.sha256.txt
+unzip haltseal-gateway-proof-pack-v0.3.2-hardened-eval.zip
+cd haltseal-gateway-proof-pack-v0.3.2-hardened-eval
 python -m pip install -r requirements.txt
-make all
-HALTSEAL_STRICT_TREE=1 python tools/release_gate.py
-python tools/export_proof_receipt.py
-python tools/verify_proof_receipt.py
+make qa-full
 ```
 
-Expected result:
+Expected public evaluation result:
 
 ```text
-Public evaluation: 32 / 32 PASS
-Packet validation: PASS
-Transparency report generation: PASS
-Synthetic evaluation attestation: PASS
-Proof receipt export: PASS
-Proof receipt verification: PASS
+Result: 32 / 32 PASS
+Public boundary: synthetic evaluation only; no production SDK; no patent license.
+```
+
+Expected hardened checks:
+
+```text
 Manifest verification: PASS
-Pytest suite: 40 passed
-Release gate: PASS / findings: 0
-Strict release gate: PASS / findings: 0
-Zip audit: PASS / findings: 0
+Packet validation: PASS
+Release gate: PASS
+Strict release gate: PASS
+Independent recomputation: 16 / 16 PASS
+Pytest: 47 passed
+Release artifact verification: PASS
+Zip audit: PASS
 ```
 
-The proof receipt headline should include:
+## Public-safety and scope boundaries
 
-```text
-HALTSEAL Gateway Proof Receipt: PASS
-Release SHA-256: OK
-Public evaluation: 32 / 32 PASS
-Boundary: network_egress_gateway
-Rights posture: no production SDK · no patent license
-```
+This release contains synthetic public evaluation artifacts only.
 
-## Public boundary
+It does not process live payments, store payment credentials, call live processors, operate a production gateway, or provide production payment, wallet, issuer, PSP, network-token, settlement-rail, cloud, endpoint, firmware, hypervisor, robotics, or device-control functionality.
 
-This release is designed to be reviewed, reproduced, and discussed without exposing private implementation depth.
+It does not include customer data, production deployment material, non-public implementation mapping, claim charts, evidence-of-use materials, target-company analysis, field-of-use analysis, commercial terms, or confidential information.
 
-Public:
+This release is not a certification, conformance program, production authorization, formal standards-track output, IETF endorsement, legal opinion, valuation request, licensing demand, commercial commitment, patent-license grant, trademark-license grant, or implementation-rights grant.
 
-```text
-Synthetic fixtures.
-Deterministic vectors.
-Schema-backed validation.
-Manifest verification.
-Fail-closed malformed-input handling.
-Boundary-mapper consistency.
-Proof receipt generation and verification.
-Copy-paste diligence block.
-Reproducible public QA.
-```
+Publication, download, execution, issue discussion, or contribution does not grant any patent license or commercial deployment right.
 
-Not public:
+## Review focus
 
-```text
-Production SDK.
-Production API.
-Private deployment internals.
-Claim charts.
-Commercial terms.
-Field-of-use terms.
-Patent-license grant.
-Certification or conformance program.
-Official standards artifact.
-```
+Useful review includes:
 
-This release is not a production SDK, production attestation, security certification, conformance program, legal opinion, claim chart, commercial offer, field-of-use agreement, or patent-license grant.
+- whether the field model is understandable;
+- whether canonical action binding is deterministic;
+- whether `action_digest` binding is reproducible;
+- whether malformed inputs fail closed;
+- whether HOLD versus DENY is clear for freshness and continuity cases;
+- whether replay, policy epoch, ICC, GLG, and ELV locks are understandable as public-eval fixtures;
+- whether the proof receipt is useful for reviewer, counsel, procurement, and written-scope diligence handoff; and
+- whether additional negative vectors or conformance vectors should be added in future public iterations.
 
-The bundled proof receipt is portable review evidence for the canonical public evaluation result. Implementation depth, claim mapping, field-of-use terms, commercial terms, and patent-license questions remain written-scope only.
+## Release posture
+
+This packet is meant to make the public boundary easier to inspect without revealing private licensing depth.
+
+Engineers get a runnable, falsifiable artifact. Reviewers get deterministic vectors and independent recomputation. Counsel and procurement get clean public-safety boundaries. Implementation mapping, field-of-use, claim mapping, commercial terms, and production rights remain written-scope.

@@ -22,6 +22,7 @@ FIXED_ZIP_TS = (2026, 7, 4, 12, 0, 0)
 def run(cmd: list[str]) -> None:
     env = dict(os.environ)
     env["PYTHONDONTWRITEBYTECODE"] = "1"
+    env.setdefault("PYTEST_DISABLE_PLUGIN_AUTOLOAD", "1")
     proc = subprocess.run(cmd, cwd=ROOT, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=env)
     print(proc.stdout, end="")
     if proc.returncode:
@@ -37,6 +38,9 @@ def clean_generated_caches() -> None:
             shutil.rmtree(p)
     for p in ROOT.rglob("*.pyc"):
         p.unlink()
+    for p in ROOT.glob("*.egg-info"):
+        if p.is_dir():
+            shutil.rmtree(p)
 
 
 def include_file(path: Path) -> bool:
@@ -87,9 +91,14 @@ def main() -> int:
     run([sys.executable, "tools/run_public_eval.py"])
     run([sys.executable, "tools/validate_public_packet.py"])
     run([sys.executable, "tools/generate_transparency_report.py"])
+    run([sys.executable, "tools/generate_transparency_bundle.py"])
+    run([sys.executable, "tools/verify_transparency_bundle.py"])
     run([sys.executable, "tools/generate_attestation.py"])
     run([sys.executable, "tools/export_proof_receipt.py"])
     run([sys.executable, "tools/verify_proof_receipt.py"])
+    run([sys.executable, "tools/generate_ed25519_profile.py"])
+    run([sys.executable, "tools/verify_ed25519_profile.py"])
+    run([sys.executable, "tools/independent_recompute.py"])
     refresh_source_tree()
     run([sys.executable, "tools/make_manifest.py"])
     run([sys.executable, "verify_manifest.py"])
@@ -99,6 +108,14 @@ def main() -> int:
     run([sys.executable, "tools/make_manifest.py"])
     run([sys.executable, "verify_manifest.py"])
     run([sys.executable, "tools/release_gate.py"])
+    env_cmd = [sys.executable, "tools/release_gate.py"]
+    strict_env = dict(os.environ)
+    strict_env["HALTSEAL_STRICT_TREE"] = "1"
+    proc = subprocess.run(env_cmd, cwd=ROOT, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=strict_env)
+    print(proc.stdout, end="")
+    if proc.returncode:
+        raise SystemExit(proc.returncode)
+    run([sys.executable, "tools/verify_release_artifact.py", "--tree", "."])
     run([sys.executable, "tools/zip_audit.py"])
 
     out_zip = ROOT / "dist" / f"{RELEASE_BASENAME}.zip"
@@ -107,6 +124,7 @@ def main() -> int:
     digest = sha256_file(out_zip)
     sha_path = out_zip.with_suffix(out_zip.suffix + ".sha256.txt")
     sha_path.write_text(f"{digest}  {out_zip.name}\n", encoding="utf-8")
+    run([sys.executable, "tools/verify_release_artifact.py", str(out_zip), "--sha256-file", str(sha_path)])
     print(f"release zip: {out_zip}")
     print(f"sha256: {digest}")
     return 0
