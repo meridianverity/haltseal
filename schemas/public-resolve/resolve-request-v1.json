@@ -1,0 +1,21 @@
+{
+  "$id": "https://meridianverity.com/schemas/haltseal/public-resolve/resolve-request-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "$ref": "action-v1.json"
+    },
+    "challenge_token": {
+      "minLength": 64,
+      "pattern": "^[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "challenge_token",
+    "action"
+  ],
+  "title": "Resolve Request",
+  "type": "object"
+}

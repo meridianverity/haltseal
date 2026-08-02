@@ -1,0 +1,49 @@
+{
+  "assets": [
+    {
+      "filename": "haltseal-public-resolve-challenge-v0.4.0.zip",
+      "source": "dist/"
+    },
+    {
+      "filename": "haltseal-public-resolve-challenge-v0.4.0.zip.sha256.txt",
+      "source": "dist/"
+    },
+    {
+      "filename": "openapi-haltseal-public-resolve-v1.yaml",
+      "source": "openapi/haltseal-public-resolve-v1.yaml"
+    },
+    {
+      "filename": "haltseal-public-resolve-schemas-v1.zip",
+      "source": "generated from schemas/public-resolve/"
+    },
+    {
+      "filename": "haltseal-public-resolve-sample-receipts-v1.zip",
+      "source": "generated from examples/receipts/"
+    },
+    {
+      "filename": "haltseal-public-resolve-verifiers-v1.zip",
+      "source": "generated from verifier/"
+    },
+    {
+      "filename": "HALTSEAL_PUBLIC_RESOLVE_RELEASE_MANIFEST.json",
+      "source": "release/v0.4.0/"
+    },
+    {
+      "filename": "SBOM.spdx.json",
+      "source": "release/v0.4.0/"
+    },
+    {
+      "filename": "provenance.json",
+      "source": "release/v0.4.0/"
+    }
+  ],
+  "never_upload": [
+    "private hosted runtime",
+    "private key or signing seed",
+    "runtime database",
+    "provider credentials",
+    "buyer trust roots",
+    "protected-emitter or provider-adapter implementation"
+  ],
+  "release": "v0.4.0-public-resolve-challenge"
+}

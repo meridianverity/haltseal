@@ -1,0 +1,17 @@
+{
+  "description": "Hosted-synthetic exact-action challenge with ACCEPT, HOLD, or REFUSE and independently verifiable signed receipts. No live provider call.",
+  "homepage": "https://meridianverity.com/haltseal/",
+  "topics": [
+    "ai-agents",
+    "agentic-commerce",
+    "payments",
+    "authorization",
+    "api-security",
+    "receipts",
+    "openapi",
+    "jws",
+    "idempotency",
+    "fail-closed",
+    "synthetic-evaluation"
+  ]
+}

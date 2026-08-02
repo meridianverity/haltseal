@@ -1,0 +1,305 @@
+{
+  "$id": "https://meridianverity.com/schemas/haltseal/public-resolve/receipt-payload-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "decision": {
+            "const": "ACCEPT"
+          }
+        },
+        "required": [
+          "decision"
+        ]
+      },
+      "then": {
+        "properties": {
+          "consumption": {
+            "properties": {
+              "state_after": {
+                "const": "CONSUMED"
+              },
+              "state_before": {
+                "const": "AVAILABLE"
+              }
+            }
+          },
+          "emission": {
+            "allOf": [
+              {
+                "$ref": "emission-v1.json"
+              },
+              {
+                "properties": {
+                  "disposition": {
+                    "const": "ONE_SYNTHETIC_REQUEST"
+                  },
+                  "existing_request_record_id": {
+                    "type": "null"
+                  },
+                  "new_request_count": {
+                    "const": 1
+                  },
+                  "outcome": {
+                    "const": "RECORDED"
+                  },
+                  "synthetic_request_record_id": {
+                    "pattern": "^hsreq_[a-z0-9_]{8,80}$",
+                    "type": "string"
+                  },
+                  "total_request_count_for_use": {
+                    "const": 1
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "decision": {
+            "const": "HOLD"
+          }
+        },
+        "required": [
+          "decision"
+        ]
+      },
+      "then": {
+        "properties": {
+          "consumption": {
+            "properties": {
+              "state_after": {
+                "const": "CONSUMED"
+              },
+              "state_before": {
+                "const": "CONSUMED"
+              }
+            }
+          },
+          "emission": {
+            "allOf": [
+              {
+                "$ref": "emission-v1.json"
+              },
+              {
+                "properties": {
+                  "disposition": {
+                    "const": "NO_NEW_REQUEST"
+                  },
+                  "existing_request_record_id": {
+                    "pattern": "^hsreq_[a-z0-9_]{8,80}$",
+                    "type": "string"
+                  },
+                  "new_request_count": {
+                    "const": 0
+                  },
+                  "outcome": {
+                    "const": "UNKNOWN"
+                  },
+                  "synthetic_request_record_id": {
+                    "type": "null"
+                  },
+                  "total_request_count_for_use": {
+                    "const": 1
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "decision": {
+            "const": "REFUSE"
+          }
+        },
+        "required": [
+          "decision"
+        ]
+      },
+      "then": {
+        "anyOf": [
+          {
+            "properties": {
+              "consumption": {
+                "properties": {
+                  "state_after": {
+                    "const": "AVAILABLE"
+                  },
+                  "state_before": {
+                    "const": "AVAILABLE"
+                  }
+                }
+              },
+              "emission": {
+                "properties": {
+                  "total_request_count_for_use": {
+                    "const": 0
+                  }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "consumption": {
+                "properties": {
+                  "state_after": {
+                    "const": "CONSUMED"
+                  },
+                  "state_before": {
+                    "const": "CONSUMED"
+                  }
+                }
+              },
+              "emission": {
+                "properties": {
+                  "total_request_count_for_use": {
+                    "const": 1
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "properties": {
+          "emission": {
+            "allOf": [
+              {
+                "$ref": "emission-v1.json"
+              },
+              {
+                "properties": {
+                  "disposition": {
+                    "const": "NO_REQUEST"
+                  },
+                  "existing_request_record_id": {
+                    "type": "null"
+                  },
+                  "new_request_count": {
+                    "const": 0
+                  },
+                  "outcome": {
+                    "const": "NONE"
+                  },
+                  "synthetic_request_record_id": {
+                    "type": "null"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "action": {
+      "$ref": "action-v1.json"
+    },
+    "action_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "aud": {
+      "const": "haltseal-public-receipt"
+    },
+    "authority": {
+      "$ref": "authority-v1.json"
+    },
+    "authority_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "boundary": {
+      "$ref": "boundary-v1.json"
+    },
+    "challenge_id": {
+      "pattern": "^hsc_[a-z0-9_]{8,80}$",
+      "type": "string"
+    },
+    "consumption": {
+      "additionalProperties": false,
+      "properties": {
+        "state_after": {
+          "enum": [
+            "AVAILABLE",
+            "CONSUMED"
+          ]
+        },
+        "state_before": {
+          "enum": [
+            "AVAILABLE",
+            "CONSUMED"
+          ]
+        }
+      },
+      "required": [
+        "state_before",
+        "state_after"
+      ],
+      "type": "object"
+    },
+    "decision": {
+      "enum": [
+        "ACCEPT",
+        "HOLD",
+        "REFUSE"
+      ]
+    },
+    "emission": {
+      "$ref": "emission-v1.json"
+    },
+    "iat": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "iss": {
+      "const": "https://eval.meridianverity.com"
+    },
+    "jti": {
+      "pattern": "^hsr_[a-z0-9_]{8,80}$",
+      "type": "string"
+    },
+    "profile_version": {
+      "const": "haltseal-public-resolve-1"
+    },
+    "reason_codes": {
+      "items": {
+        "pattern": "^[A-Z0-9_]{3,64}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "iss",
+    "aud",
+    "jti",
+    "iat",
+    "profile_version",
+    "challenge_id",
+    "authority",
+    "authority_digest",
+    "action",
+    "action_digest",
+    "decision",
+    "reason_codes",
+    "emission",
+    "consumption",
+    "boundary"
+  ],
+  "title": "HALTSEAL Evaluation Receipt Payload",
+  "type": "object"
+}

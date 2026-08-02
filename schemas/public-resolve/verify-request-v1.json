@@ -1,0 +1,17 @@
+{
+  "$id": "https://meridianverity.com/schemas/haltseal/public-resolve/verify-request-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "receipt_jws": {
+      "minLength": 64,
+      "pattern": "^[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "receipt_jws"
+  ],
+  "title": "Verify Request",
+  "type": "object"
+}

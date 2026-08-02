@@ -1,0 +1,35 @@
+{
+  "$id": "https://meridianverity.com/schemas/haltseal/public-resolve/boundary-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "live_provider_call": {
+      "const": false
+    },
+    "patent_license_granted": {
+      "const": false
+    },
+    "payment_credentials_accepted": {
+      "const": false
+    },
+    "production_rights": {
+      "const": false
+    },
+    "profile_version": {
+      "const": "haltseal-public-resolve-1"
+    },
+    "synthetic": {
+      "const": true
+    }
+  },
+  "required": [
+    "synthetic",
+    "live_provider_call",
+    "payment_credentials_accepted",
+    "production_rights",
+    "patent_license_granted",
+    "profile_version"
+  ],
+  "title": "Public Evaluation Boundary",
+  "type": "object"
+}

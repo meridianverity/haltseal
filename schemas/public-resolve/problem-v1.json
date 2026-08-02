@@ -1,0 +1,33 @@
+{
+  "$id": "https://meridianverity.com/schemas/haltseal/public-resolve/problem-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "detail": {
+      "type": "string"
+    },
+    "evaluation_only": {
+      "const": true
+    },
+    "status": {
+      "maximum": 599,
+      "minimum": 400,
+      "type": "integer"
+    },
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "title",
+    "status",
+    "detail",
+    "evaluation_only"
+  ],
+  "title": "Evaluation Problem",
+  "type": "object"
+}

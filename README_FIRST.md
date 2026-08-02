@@ -1,22 +1,11 @@
-# Read this first
-
-This repository is intentionally narrow.
-
-It is a public-safe evaluation artifact for one HALTSEAL gateway review scenario. It is not a production SDK, not a private legal mapping, not a certification, not endorsed as a formal standards-track output, and not a patent-license grant.
-
-Run the demo first:
+# Start here
 
 ```bash
-python tools/run_public_eval.py
-python tools/export_proof_receipt.py
-python tools/verify_proof_receipt.py
+python -m pip install -r requirements.txt
+PYTHONPATH=. python -m pytest tests_public_resolve
+PYTHONPATH=. python -m haltseal_resolve.mock_server
 ```
 
-Then read, in order:
+Then run `bash examples/curl/run-local-challenge.sh` and verify the returned receipt offline.
 
-1. `docs/PUBLIC_BOUNDARY.md`
-2. `docs/GATEWAY_PROOF_PACK.md`
-3. `docs/PROOF_RECEIPT.md`
-4. `docs/REVIEWER_GUIDE.md`
-5. `docs/DILIGENCE_PACKET.md`
-6. `docs/LICENSING_HANDOFF.md`
+**Boundary:** fixed synthetic payment profiles only; no credentials; no live provider call; no production or patent rights.

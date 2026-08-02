@@ -1,114 +1,176 @@
-# HALTSEAL Gateway Proof Pack
+# HALTSEAL Public Resolve Challenge
 
-**Public-safe · synthetic · runnable · fail-closed · no patent license · written-scope depth**
+**Call one exact action. Receive one bounded decision. Verify the receipt yourself.**
 
-HALTSEAL Gateway Proof Pack is a synthetic, public-safe evaluation artifact for permit-before-action runtime control at one protected action boundary.
+HALTSEAL Public Resolve Challenge is a hosted, synthetic, API-addressable evaluation surface for one receiver-owned payment decision. A server-issued authority challenge is resolved against one complete final synthetic payment action and returns:
 
-It demonstrates canonical action binding, short-lived permit checks, signed-head freshness/continuity posture, fail-closed HOLD/DENY behavior, anti-replay posture, boundary mapping, schema validation, malformed-input denial, audit-ready evidence shapes, and a portable proof receipt for written-scope diligence handoff.
+```text
+ACCEPT  → one synthetic request record, at most once
+HOLD    → no new request while a prior synthetic outcome is unknown
+REFUSE  → no request
+```
 
-It is not production software, not a production SDK, not a certification program, not endorsed as a formal standards-track output, not a private legal mapping, and grants no patent license.
+Every bounded decision includes an Ed25519-signed receipt that can be verified offline with the public Python or TypeScript verifier. Both verifiers enforce the same closed receipt profile, decision-specific emission and consumption invariants, and canonical unpadded compact-JWS encoding.
 
-## The 3-minute run
+## Hard public boundary
+
+```text
+Synthetic evaluation only
+No payment credentials accepted
+No live provider call
+No user-supplied URL or callback
+No production SDK or service rights
+No implementation or patent license
+```
+
+The hosted endpoint is designed to run at:
+
+```text
+https://eval.meridianverity.com/haltseal/evaluation/v1
+```
+
+**Do not publish the v0.4.0 release until the hosted launch gate reports PASS.** The public repository remains useful before launch through the local in-memory contract mock and signed sample receipts.
+
+## 60-second local proof
 
 ```bash
 python -m pip install -r requirements.txt
-python tools/run_public_eval.py
+PYTHONPATH=. python -m haltseal_resolve.mock_server
 ```
 
-Expected summary:
-
-```text
-HALTSEAL Gateway Proof Pack — synthetic public evaluation
-...
-Result: 32 / 32 PASS
-Public boundary: synthetic evaluation only; no production SDK; no patent license.
-```
-
-Generate the proof receipt:
+In a second terminal:
 
 ```bash
-python tools/export_proof_receipt.py
-python tools/verify_proof_receipt.py
+bash examples/curl/run-local-challenge.sh
 ```
 
-Expected receipt headline:
+Verify a frozen sample receipt without trusting any MVG verification endpoint:
+
+```bash
+PYTHONPATH=. python -m haltseal_resolve.cli verify \
+  examples/receipts/accept-exact.receipt.jws \
+  --jwks keys/sample-evaluation-jwks.json
+
+node verifier/typescript/haltseal_verify.mjs \
+  examples/receipts/accept-exact.receipt.jws \
+  keys/sample-evaluation-jwks.json
+```
+
+## Public HTTP contract
 
 ```text
-HALTSEAL Gateway Proof Receipt: PASS
-Release SHA-256: OK
-Public evaluation: 32 / 32 PASS
-Boundary: network_egress_gateway
-Rights posture: no production SDK · no patent license
+POST /challenges  → server-issued synthetic authority
+POST /resolve     → ACCEPT | HOLD | REFUSE + signed receipt
+POST /verify      → convenience verification
+GET  /jwks.json   → hosted evaluation verification keys
 ```
 
-## What this proves publicly
-
-The artifact narrows the review to one protected action:
+Canonical OpenAPI contract:
 
 ```text
-POST /external-tool/send-sensitive-payload
+openapi/haltseal-public-resolve-v1.yaml
 ```
 
-The synthetic gateway captures:
+## Why the server issues authority
+
+The caller may propose an action but may not define the authority against which that action is judged. Otherwise a caller could simply authorize its own action. Each challenge therefore fixes a synthetic amount, currency, merchant, terms, destination, currentness, and one-use state before `/resolve` is called.
+
+## Replay semantics
+
+Two cases are deliberately separated:
 
 ```text
-method, destination, tenant_id, agent_id, mission_id, payload_sha256,
-policy_epoch, signed_head_id, nonce, monotonic_counter, implementation_hook
+Same challenge + same exact action + same Idempotency-Key
+→ stored response returned
+→ no additional synthetic request record
+
+Same authority after its one authorized use, but a new Idempotency-Key
+→ REFUSE · AUTHORIZED_USE_ALREADY_CONSUMED
+→ no additional synthetic request record
 ```
 
-The verifier checks:
+A transport retry is not a new economic use.
+
+## Public repository contents
 
 ```text
-canonical bytes, action digest, permit signature, permit status, audience binding,
-signed-head freshness, continuity proof, witness posture, replay state, policy-epoch
-lock, ICC head lock, synthetic GLG locks, ELV measurement lock, strict public-eval
-boundary mapping, and malformed-input handling
+openapi/                    versioned HTTP contract
+schemas/public-resolve/     closed JSON Schemas
+profiles/                   fixed synthetic authority profiles
+reason-codes/               decision and reason-code registry
+haltseal_resolve/           offline verifier and in-memory contract mock
+verifier/typescript/        dependency-free Node verifier
+examples/                   curl, Python, TypeScript, and signed receipts
+vectors/public-resolve/     positive and adversarial conformance vectors
+keys/                       public sample verification key only
+release/v0.4.0/             release manifest, SBOM, provenance, QA
+website/                    surgical HALTSEAL page copy patch
 ```
 
-The result is deliberately simple:
-
-```text
-ALLOW only if the exact proof is current and inside the public-eval boundary.
-HOLD when freshness or continuity cannot be established.
-DENY when permit, digest, audience, signature, revocation, context, hook, boundary,
-timestamp, policy, replay, shape, or signed-head checks fail.
-```
-
-## v0.3.1 proof-receipt focus
-
-v0.3.1-proof-receipt keeps the v0.3.0 public evaluation boundary intact and adds a review-ready proof receipt: JSON receipt, Markdown one-pager, copy-paste diligence block, receipt schema, receipt verifier, and tests that keep the receipt aligned with QA results.
-
-The underlying public evaluation remains v0.3.0-public-eval: 32 deterministic vectors, policy-epoch/ICC/GLG/ELV locks, schema-validated packets/results/evidence, malformed-input fail-closed tests, release hygiene checks, and reproducible manifest generation.
+The historical v0.3.2 Gateway Proof Pack remains preserved in the same repository lineage. It demonstrates a local generic gateway proof. v0.4.0 adds the callable synthetic payment decision and independent receipt-verification surface; it does not publish the hosted runtime or the real effect-custody kernel.
 
 ## Public/private split
 
-Public here means reviewable, deterministic, and safe to run. It does **not** mean production use, commercial deployment, claim mapping, implementation depth, or license grant.
-
-Private written-scope diligence is where implementation maps, field-of-use terms, commercial terms, production APIs, and patent-license questions belong.
-
-## Repository map
+### Public
 
 ```text
-haltseal_eval/       synthetic verifier code
-vectors/             32 deterministic gateway vectors
-examples/            one JSON packet per vector plus proof-receipt examples
-schemas/             strict review schemas for packet/result/evidence/receipt shapes
-tools/               eval runner, packet validator, proof receipt, release gate, manifest builder
-docs/                public boundary, reviewer guide, proof receipt, licensing handoff, QA report
-receipts/            generated JSON, Markdown, and copy-paste proof receipt outputs
-tests/               reproducibility, schema, malformed-input, receipt, and fail-closed tests
+contract
+schemas
+profiles
+reason codes
+sample receipts
+public verification keys
+Python and TypeScript verifiers
+conformance vectors
+local in-memory mock
+release manifest, SBOM, and provenance
 ```
 
-## Reviewer path
+### Controlled by MVG
 
-1. Run `python tools/run_public_eval.py`.
-2. Generate `python tools/export_proof_receipt.py`.
-3. Verify `python tools/verify_proof_receipt.py`.
-4. Inspect `vectors/haltseal_gateway_vectors.json`.
-5. Read `docs/PUBLIC_BOUNDARY.md` and `docs/PROOF_RECEIPT.md`.
-6. Use `docs/REVIEWER_GUIDE.md` for a 30-minute technical review.
-7. Use `docs/DILIGENCE_PACKET.md` and `docs/LICENSING_HANDOFF.md` only for written-scope diligence routing.
+```text
+hosted resolver runtime
+atomic durable one-use state
+live evaluation signing key
+rate and abuse controls
+operational telemetry
+```
+
+### Written-scope buyer diligence only
+
+```text
+production policy and revocation sources
+provider adapter and provider request mapping
+protected credentialed emitter
+KMS/HSM configuration
+buyer trust roots
+live provider reconciliation and reversal
+claim charts, evidence-of-use, and commercial terms
+```
+
+## Verification
+
+```bash
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 PYTHONPATH=. python -m pytest -q
+PYTHONPATH=. python tools/public_resolve/run_verifier_parity.py
+PYTHONPATH=. python tools/public_resolve/run_http_contract.py
+node verifier/typescript/haltseal_verify.mjs \
+  examples/receipts/accept-exact.receipt.jws \
+  keys/sample-evaluation-jwks.json
+```
+
+The public challenge does not establish production non-bypassability, payment processing, network compatibility, certification, partnership, independent validation, production readiness, or implementation rights.
+
+## Review path
+
+1. Read `docs/public-resolve/PUBLIC_API_BOUNDARY.md`.
+2. Inspect the OpenAPI contract and closed schemas.
+3. Run the local contract mock.
+4. Verify the signed samples offline.
+5. Run the public conformance suite.
+6. Inspect `docs/public-resolve/PRIVATE_IMPLEMENTATION_BOUNDARY.md`.
+7. For a real effect boundary, nominate one buyer-owned purchase or payout under written scope.
 
 ## Legal/IP posture
 
-See `LICENSE-EVALUATION.md` and `PATENT-NOTICE.md` before running, redistributing, or discussing implementation depth.
+See `LICENSE-EVALUATION.md`, `PATENT-NOTICE.md`, and `docs/public-resolve/API_EVALUATION_TERMS.md`. Publication, download, API access, execution, issue discussion, or contribution grants no patent license, production right, commercial deployment right, certification, or trademark license.

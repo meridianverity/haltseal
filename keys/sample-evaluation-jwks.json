@@ -1,0 +1,12 @@
+{
+  "keys": [
+    {
+      "alg": "EdDSA",
+      "crv": "Ed25519",
+      "kid": "haltseal-public-sample-2026-08-v1",
+      "kty": "OKP",
+      "use": "sig",
+      "x": "9bjATPULOdHe5IXQmlHMZ7fM2oYb7_4OqTLWBknHtQg"
+    }
+  ]
+}

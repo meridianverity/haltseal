@@ -1,0 +1,177 @@
+openapi: 3.1.1
+info:
+  title: HALTSEAL Public Resolve Challenge
+  version: 1.0.0
+  summary: Hosted synthetic evaluation for one server-issued authority and one complete final payment action.
+  description: |
+    HALTSEAL Public Resolve Challenge is an evaluation-only API surface.
+    It accepts no payment credentials, makes no live provider call, and grants no
+    production, implementation, trademark, or patent rights. ACCEPT creates at
+    most one synthetic request record. HOLD and REFUSE create no new request.
+  contact:
+    name: Meridian Verity Group
+    url: https://meridianverity.com/haltseal/
+  license:
+    name: HALTSEAL Source-Available Evaluation License
+    url: https://github.com/meridianverity/haltseal/blob/main/LICENSE-EVALUATION.md
+servers:
+  - url: https://eval.meridianverity.com/haltseal/evaluation/v1
+    description: MVG-controlled hosted synthetic evaluation; publish only after launch-gate PASS.
+  - url: http://127.0.0.1:8787/haltseal/evaluation/v1
+    description: In-memory local contract mock; no durability or provider egress.
+tags:
+  - name: Challenge
+  - name: Resolve
+  - name: Verify
+paths:
+  /challenges:
+    post:
+      operationId: createChallenge
+      tags: [Challenge]
+      summary: Issue a server-defined synthetic authority challenge.
+      description: The caller selects a fixed public profile. The server, not the caller, defines authority.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ../schemas/public-resolve/challenge-request-v1.json
+            examples:
+              exact:
+                value:
+                  profile: payment.one-time-purchase.v1
+      responses:
+        '201':
+          description: Synthetic challenge issued.
+          headers:
+            Cache-Control:
+              schema: {type: string, const: no-store}
+            X-HALTSEAL-Evaluation-Only:
+              schema: {type: string, const: 'true'}
+          content:
+            application/json:
+              schema:
+                $ref: ../schemas/public-resolve/challenge-response-v1.json
+        '400':
+          $ref: '#/components/responses/InvalidRequest'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /resolve:
+    post:
+      operationId: resolveExactAction
+      tags: [Resolve]
+      summary: Resolve one complete final synthetic payment action.
+      description: |
+        Returns ACCEPT, HOLD, or REFUSE with a signed receipt. The Idempotency-Key
+        identifies a transport attempt. Reusing the same key with the identical
+        request returns the stored response and creates no additional record.
+        A new key cannot create a second economic use after consumption.
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: true
+          description: 16-128 safe ASCII characters. Reuse with a different request is rejected.
+          schema:
+            type: string
+            minLength: 16
+            maxLength: 128
+            pattern: '^[A-Za-z0-9][A-Za-z0-9._:-]{15,127}$'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ../schemas/public-resolve/resolve-request-v1.json
+      responses:
+        '200':
+          description: Signed bounded decision. This response never represents a live provider call.
+          headers:
+            X-HALTSEAL-Idempotent-Replayed:
+              description: true only when the stored response was returned for an identical transport retry.
+              schema: {type: string, enum: ['true', 'false']}
+            X-HALTSEAL-Evaluation-Only:
+              schema: {type: string, const: 'true'}
+            Cache-Control:
+              schema: {type: string, const: no-store}
+          content:
+            application/json:
+              schema:
+                $ref: ../schemas/public-resolve/resolve-response-v1.json
+        '400':
+          $ref: '#/components/responses/InvalidRequest'
+        '409':
+          description: The Idempotency-Key was reused with a different request.
+          content:
+            application/problem+json:
+              schema:
+                $ref: ../schemas/public-resolve/problem-v1.json
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '503':
+          $ref: '#/components/responses/Unavailable'
+  /verify:
+    post:
+      operationId: verifyEvaluationReceipt
+      tags: [Verify]
+      summary: Verify a signed evaluation receipt for convenience.
+      description: The offline Python or TypeScript verifier remains the trust-minimized path.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ../schemas/public-resolve/verify-request-v1.json
+      responses:
+        '200':
+          description: Signature and semantic replay both pass.
+          content:
+            application/json:
+              schema:
+                $ref: ../schemas/public-resolve/verify-response-v1.json
+        '400':
+          $ref: '#/components/responses/InvalidRequest'
+  /jwks.json:
+    get:
+      operationId: getEvaluationJwks
+      tags: [Verify]
+      summary: Return the hosted evaluation receipt verification keys.
+      responses:
+        '200':
+          description: Public Ed25519 JWK Set. Hosted keys are distinct from local sample keys.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required: [keys]
+                properties:
+                  keys:
+                    type: array
+                    minItems: 1
+                    items:
+                      type: object
+components:
+  responses:
+    InvalidRequest:
+      description: Strict schema, type, duplicate-member, credential-like-input, or challenge validation failure.
+      content:
+        application/problem+json:
+          schema:
+            $ref: ../schemas/public-resolve/problem-v1.json
+    RateLimited:
+      description: Evaluation quota exceeded.
+      headers:
+        Retry-After:
+          schema: {type: integer, minimum: 1}
+      content:
+        application/problem+json:
+          schema:
+            $ref: ../schemas/public-resolve/problem-v1.json
+    Unavailable:
+      description: The service could not establish durable state or a signed decision. It never fails open to ACCEPT.
+      content:
+        application/problem+json:
+          schema:
+            $ref: ../schemas/public-resolve/problem-v1.json

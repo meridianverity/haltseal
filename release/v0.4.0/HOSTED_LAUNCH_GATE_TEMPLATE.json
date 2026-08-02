@@ -1,0 +1,26 @@
+{
+  "expected_endpoint": "https://eval.meridianverity.com/haltseal/evaluation/v1",
+  "external_facts_not_claimed": [
+    "live provider integration",
+    "payment processing",
+    "network compatibility",
+    "independent review until named disposition exists",
+    "production readiness"
+  ],
+  "release": "v0.4.0-public-resolve-challenge",
+  "required": [
+    "strict-input-suite-pass",
+    "durable-state-suite-pass",
+    "signer-failure-fail-closed",
+    "64-way-one-use-pass",
+    "zero-provider-egress-pass",
+    "rate-limit-pass",
+    "payload-cap-pass",
+    "hosted-jwks-pass",
+    "offline-replay-pass",
+    "health-ready-pass",
+    "fresh-download-asset-verification-pass",
+    "named-review-status-recorded"
+  ],
+  "status": "NOT_EXECUTED"
+}

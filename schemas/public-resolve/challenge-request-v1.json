@@ -1,0 +1,19 @@
+{
+  "$id": "https://meridianverity.com/schemas/haltseal/public-resolve/challenge-request-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "profile": {
+      "enum": [
+        "payment.one-time-purchase.v1",
+        "payment.outcome-unknown.v1",
+        "payment.revoked-authority.v1"
+      ]
+    }
+  },
+  "required": [
+    "profile"
+  ],
+  "title": "Challenge Request",
+  "type": "object"
+}

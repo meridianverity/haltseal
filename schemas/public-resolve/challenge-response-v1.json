@@ -1,0 +1,39 @@
+{
+  "$id": "https://meridianverity.com/schemas/haltseal/public-resolve/challenge-response-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "$ref": "authority-v1.json"
+    },
+    "boundary": {
+      "$ref": "boundary-v1.json"
+    },
+    "challenge_id": {
+      "pattern": "^hsc_[a-z0-9_]{8,80}$",
+      "type": "string"
+    },
+    "challenge_token": {
+      "minLength": 64,
+      "pattern": "^[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+$",
+      "type": "string"
+    },
+    "evaluation_only": {
+      "const": true
+    },
+    "expires_at_epoch": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "challenge_id",
+    "challenge_token",
+    "authority",
+    "expires_at_epoch",
+    "evaluation_only",
+    "boundary"
+  ],
+  "title": "Challenge Response",
+  "type": "object"
+}

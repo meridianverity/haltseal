@@ -1,0 +1,72 @@
+{
+  "$id": "https://meridianverity.com/schemas/haltseal/public-resolve/resolve-response-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "authority_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "boundary": {
+      "$ref": "boundary-v1.json"
+    },
+    "decision": {
+      "enum": [
+        "ACCEPT",
+        "HOLD",
+        "REFUSE"
+      ]
+    },
+    "emission": {
+      "$ref": "emission-v1.json"
+    },
+    "reason_codes": {
+      "items": {
+        "pattern": "^[A-Z0-9_]{3,64}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "receipt": {
+      "additionalProperties": false,
+      "properties": {
+        "jws": {
+          "minLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+$",
+          "type": "string"
+        },
+        "receipt_id": {
+          "pattern": "^hsr_[a-z0-9_]{8,80}$",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "receipt_id",
+        "jws",
+        "sha256"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "decision",
+    "reason_codes",
+    "action_digest",
+    "authority_digest",
+    "emission",
+    "receipt",
+    "boundary"
+  ],
+  "title": "Resolve Response",
+  "type": "object"
+}

@@ -1,0 +1,55 @@
+{
+  "$id": "https://meridianverity.com/schemas/haltseal/public-resolve/emission-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "disposition": {
+      "enum": [
+        "ONE_SYNTHETIC_REQUEST",
+        "NO_REQUEST",
+        "NO_NEW_REQUEST"
+      ]
+    },
+    "existing_request_record_id": {
+      "pattern": "^hsreq_[a-z0-9_]{8,80}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "new_request_count": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "outcome": {
+      "enum": [
+        "RECORDED",
+        "NONE",
+        "UNKNOWN"
+      ]
+    },
+    "synthetic_request_record_id": {
+      "pattern": "^hsreq_[a-z0-9_]{8,80}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "total_request_count_for_use": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "disposition",
+    "synthetic_request_record_id",
+    "existing_request_record_id",
+    "new_request_count",
+    "total_request_count_for_use",
+    "outcome"
+  ],
+  "title": "Synthetic Emission Record",
+  "type": "object"
+}

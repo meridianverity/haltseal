@@ -1,0 +1,59 @@
+{
+  "$id": "https://meridianverity.com/schemas/haltseal/public-resolve/verify-response-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "authority_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "ACCEPT",
+        "HOLD",
+        "REFUSE"
+      ]
+    },
+    "emission": {
+      "$ref": "emission-v1.json"
+    },
+    "profile_version": {
+      "const": "haltseal-public-resolve-1"
+    },
+    "reason_codes": {
+      "items": {
+        "pattern": "^[A-Z0-9_]{3,64}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "semantic_replay": {
+      "const": "PASS"
+    },
+    "signature": {
+      "const": "VALID"
+    }
+  },
+  "required": [
+    "signature",
+    "semantic_replay",
+    "decision",
+    "reason_codes",
+    "action_digest",
+    "authority_digest",
+    "emission",
+    "receipt_id",
+    "profile_version"
+  ],
+  "title": "Verify Response",
+  "type": "object"
+}

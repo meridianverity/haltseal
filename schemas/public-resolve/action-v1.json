@@ -1,0 +1,42 @@
+{
+  "$id": "https://meridianverity.com/schemas/haltseal/public-resolve/action-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "amount_minor": {
+      "maximum": 100000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "currency": {
+      "const": "USD"
+    },
+    "destination_id": {
+      "enum": [
+        "account_synthetic_a",
+        "account_synthetic_b"
+      ]
+    },
+    "merchant_id": {
+      "enum": [
+        "merchant_synthetic_alpha",
+        "merchant_synthetic_beta"
+      ]
+    },
+    "terms": {
+      "enum": [
+        "ONE_TIME",
+        "RECURRING_MONTHLY"
+      ]
+    }
+  },
+  "required": [
+    "amount_minor",
+    "currency",
+    "merchant_id",
+    "terms",
+    "destination_id"
+  ],
+  "title": "HALTSEAL Synthetic Payment Action v1",
+  "type": "object"
+}

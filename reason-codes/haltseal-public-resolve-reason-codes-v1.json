@@ -1,0 +1,71 @@
+{
+  "boundary": {
+    "no_live_provider_call": true,
+    "no_payment_credentials": true,
+    "synthetic_evaluation_only": true
+  },
+  "codes": [
+    {
+      "code": "AUTHORITY_CURRENT",
+      "decision": "ACCEPT",
+      "meaning": "The server-issued synthetic authority is current."
+    },
+    {
+      "code": "ACTION_EXACT",
+      "decision": "ACCEPT",
+      "meaning": "All material fields of the final action match the server-issued authority."
+    },
+    {
+      "code": "USE_AVAILABLE",
+      "decision": "ACCEPT",
+      "meaning": "The single synthetic authorized use remains available."
+    },
+    {
+      "code": "PROVIDER_OUTCOME_UNKNOWN",
+      "decision": "HOLD",
+      "meaning": "A prior synthetic request record exists and its simulated outcome is unknown; no new request is created."
+    },
+    {
+      "code": "AUTHORITY_REVOKED",
+      "decision": "REFUSE",
+      "meaning": "The server-issued synthetic authority is revoked."
+    },
+    {
+      "code": "AUTHORIZED_USE_ALREADY_CONSUMED",
+      "decision": "REFUSE",
+      "meaning": "The one authorized synthetic economic use has already been consumed."
+    },
+    {
+      "code": "AMOUNT_MISMATCH",
+      "decision": "REFUSE",
+      "meaning": "The final amount differs from the authorized amount."
+    },
+    {
+      "code": "CURRENCY_MISMATCH",
+      "decision": "REFUSE",
+      "meaning": "The final currency differs from the authorized currency."
+    },
+    {
+      "code": "MERCHANT_MISMATCH",
+      "decision": "REFUSE",
+      "meaning": "The final merchant differs from the authorized merchant."
+    },
+    {
+      "code": "TERMS_MISMATCH",
+      "decision": "REFUSE",
+      "meaning": "The final payment terms differ from the authorized terms."
+    },
+    {
+      "code": "DESTINATION_MISMATCH",
+      "decision": "REFUSE",
+      "meaning": "The final destination differs from the authorized destination."
+    }
+  ],
+  "decisions": [
+    "ACCEPT",
+    "HOLD",
+    "REFUSE"
+  ],
+  "registry": "haltseal-public-resolve-reason-codes-1",
+  "release": "v0.4.0-public-resolve-challenge"
+}

@@ -1,0 +1,64 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://meridianverity.com/buildtypes/deterministic-public-evaluation/v1",
+      "externalParameters": {
+        "fixed_timestamp": "2026-08-01T16:00:00Z",
+        "release": "v0.4.0-public-resolve-challenge",
+        "taggedCommitCoordinate": "recorded externally in the GitHub release and hosted launch record"
+      },
+      "internalParameters": {
+        "private_runtime_included": false,
+        "provider_egress": false
+      },
+      "resolvedDependencies": [
+        {
+          "digest": {
+            "sha256": "9f90d831edc2b6e4e6b5b3f5d41eb9c39b938532af82528879965445e613f886"
+          },
+          "uri": "urn:haltseal:public-source-tree:v0.4.0"
+        }
+      ]
+    },
+    "runDetails": {
+      "builder": {
+        "id": "https://github.com/meridianverity/haltseal"
+      },
+      "byproducts": [
+        {
+          "digest": {
+            "sha256": "dabbfb9f1e264c3a7ec19ab3cc3e4af584b34c2e372b73c75f8cff6fd2493494"
+          },
+          "name": "public-resolve-qa"
+        },
+        {
+          "digest": {
+            "sha256": "d8579faed2ae0b9c8adeb654f78c506d06f8ecc034c7a41cc75aa4141b9bc7b5"
+          },
+          "name": "verifier-parity-qa"
+        },
+        {
+          "digest": {
+            "sha256": "e5119a26d1a5bf90bcd5cf456f0f2c2eecaffb64b0fd526feb6576c04d6db91e"
+          },
+          "name": "http-contract-qa"
+        }
+      ],
+      "metadata": {
+        "finishedOn": "2026-08-01T16:00:00Z",
+        "invocationId": "haltseal-v0.4.0-public-resolve",
+        "startedOn": "2026-08-01T16:00:00Z"
+      }
+    }
+  },
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "subject": [
+    {
+      "digest": {
+        "sha256": "9f90d831edc2b6e4e6b5b3f5d41eb9c39b938532af82528879965445e613f886"
+      },
+      "name": "HALTSEAL Public Resolve Challenge v0.4.0 public source tree"
+    }
+  ]
+}

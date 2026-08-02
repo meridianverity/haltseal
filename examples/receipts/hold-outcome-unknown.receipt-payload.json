@@ -1,0 +1,50 @@
+{
+  "action": {
+    "amount_minor": 25000,
+    "currency": "USD",
+    "destination_id": "account_synthetic_a",
+    "merchant_id": "merchant_synthetic_alpha",
+    "terms": "ONE_TIME"
+  },
+  "action_digest": "sha256:fc0348c18518a55fecddebd3d2765c871eb6a18f6b8fca96122aabb5869585de",
+  "aud": "haltseal-public-receipt",
+  "authority": {
+    "authorized_amount_minor": 25000,
+    "currency": "USD",
+    "destination_id": "account_synthetic_a",
+    "merchant_id": "merchant_synthetic_alpha",
+    "remaining_uses": 0,
+    "status": "CURRENT",
+    "terms": "ONE_TIME"
+  },
+  "authority_digest": "sha256:3aa42f8de4d05b59b6b92f950646ec7bb054764c9d6135cae2bdbfb63da0d753",
+  "boundary": {
+    "live_provider_call": false,
+    "patent_license_granted": false,
+    "payment_credentials_accepted": false,
+    "production_rights": false,
+    "profile_version": "haltseal-public-resolve-1",
+    "synthetic": true
+  },
+  "challenge_id": "hsc_sample_fixed_000000000001",
+  "consumption": {
+    "state_after": "CONSUMED",
+    "state_before": "CONSUMED"
+  },
+  "decision": "HOLD",
+  "emission": {
+    "disposition": "NO_NEW_REQUEST",
+    "existing_request_record_id": "hsreq_sample_existing_unknown",
+    "new_request_count": 0,
+    "outcome": "UNKNOWN",
+    "synthetic_request_record_id": null,
+    "total_request_count_for_use": 1
+  },
+  "iat": 1785600000,
+  "iss": "https://eval.meridianverity.com",
+  "jti": "hsr_sample_hold_0000000000001",
+  "profile_version": "haltseal-public-resolve-1",
+  "reason_codes": [
+    "PROVIDER_OUTCOME_UNKNOWN"
+  ]
+}

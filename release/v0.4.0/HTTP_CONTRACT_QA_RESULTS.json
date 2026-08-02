@@ -1,0 +1,117 @@
+{
+  "cases": 5,
+  "failed": 0,
+  "passed": 5,
+  "release": "v0.4.0-public-resolve-challenge",
+  "results": [
+    {
+      "id": "http-001-challenge-created",
+      "observed": {
+        "body": {
+          "authority": {
+            "authorized_amount_minor": 25000,
+            "currency": "USD",
+            "destination_id": "account_synthetic_a",
+            "merchant_id": "merchant_synthetic_alpha",
+            "remaining_uses": 1,
+            "status": "CURRENT",
+            "terms": "ONE_TIME"
+          },
+          "boundary": {
+            "live_provider_call": false,
+            "patent_license_granted": false,
+            "payment_credentials_accepted": false,
+            "production_rights": false,
+            "profile_version": "haltseal-public-resolve-1",
+            "synthetic": true
+          },
+          "evaluation_only": true
+        },
+        "content_type": "application/json",
+        "evaluation_only_header": "true",
+        "status": 201
+      },
+      "pass": true
+    },
+    {
+      "id": "http-002-first-use",
+      "observed": {
+        "body": {
+          "boundary": {
+            "live_provider_call": false,
+            "patent_license_granted": false,
+            "payment_credentials_accepted": false,
+            "production_rights": false,
+            "profile_version": "haltseal-public-resolve-1",
+            "synthetic": true
+          },
+          "decision": "REFUSE",
+          "emission": {
+            "disposition": "NO_REQUEST",
+            "existing_request_record_id": null,
+            "new_request_count": 0,
+            "outcome": "NONE",
+            "synthetic_request_record_id": null,
+            "total_request_count_for_use": 0
+          },
+          "reason_codes": [
+            "TERMS_MISMATCH"
+          ]
+        },
+        "content_type": "application/json",
+        "evaluation_only_header": "true",
+        "replayed": "false",
+        "status": 200
+      },
+      "pass": true
+    },
+    {
+      "id": "http-003-idempotency-conflict",
+      "observed": {
+        "body": {
+          "detail": "Idempotency-Key was already used with a different request",
+          "evaluation_only": true,
+          "status": 409,
+          "title": "IDEMPOTENCY_KEY_CONFLICT",
+          "type": "about:blank"
+        },
+        "content_type": "application/problem+json",
+        "evaluation_only_header": "true",
+        "status": 409
+      },
+      "pass": true
+    },
+    {
+      "id": "http-004-validation-problem",
+      "observed": {
+        "body": {
+          "detail": "challenge request must contain exactly profile",
+          "evaluation_only": true,
+          "status": 400,
+          "title": "INVALID_REQUEST",
+          "type": "about:blank"
+        },
+        "content_type": "application/problem+json",
+        "evaluation_only_header": "true",
+        "status": 400
+      },
+      "pass": true
+    },
+    {
+      "id": "http-005-fail-closed-unavailable",
+      "observed": {
+        "body": {
+          "detail": "mock service could not establish a signed decision",
+          "evaluation_only": true,
+          "status": 503,
+          "title": "FAIL_CLOSED",
+          "type": "about:blank"
+        },
+        "content_type": "application/problem+json",
+        "evaluation_only_header": "true",
+        "status": 503
+      },
+      "pass": true
+    }
+  ]
+}

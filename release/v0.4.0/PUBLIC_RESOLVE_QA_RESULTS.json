@@ -1,0 +1,313 @@
+{
+  "boundary": "synthetic evaluation only; no provider egress; no patent license",
+  "failed": 0,
+  "passed": 32,
+  "release": "v0.4.0-public-resolve-challenge",
+  "results": [
+    {
+      "id": "prc-001-exact-accept",
+      "observed": {
+        "decision": "ACCEPT",
+        "new_request_count": 1,
+        "reason_codes": [
+          "AUTHORITY_CURRENT",
+          "ACTION_EXACT",
+          "USE_AVAILABLE"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-002-amount-high-refuse",
+      "observed": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AMOUNT_MISMATCH"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-003-amount-low-refuse",
+      "observed": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AMOUNT_MISMATCH"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-004-merchant-refuse",
+      "observed": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "MERCHANT_MISMATCH"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-005-terms-refuse",
+      "observed": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "TERMS_MISMATCH"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-006-destination-refuse",
+      "observed": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "DESTINATION_MISMATCH"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-007-multi-field-refuse",
+      "observed": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AMOUNT_MISMATCH",
+          "TERMS_MISMATCH",
+          "DESTINATION_MISMATCH"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-008-revoked-refuse",
+      "observed": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AUTHORITY_REVOKED"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-009-unknown-hold",
+      "observed": {
+        "decision": "HOLD",
+        "new_request_count": 0,
+        "reason_codes": [
+          "PROVIDER_OUTCOME_UNKNOWN"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-010-same-key-retry",
+      "observed": {
+        "first_replayed": false,
+        "same_response": true,
+        "second_replayed": true,
+        "total_request_count": 1
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-011-new-use-refuse",
+      "observed": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AUTHORIZED_USE_ALREADY_CONSUMED"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-012-concurrency-64",
+      "observed": {
+        "accepts": 1,
+        "new_request_count": 1
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-013-strict-duplicate",
+      "observed": {
+        "accepted": false
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-014-strict-nan",
+      "observed": {
+        "accepted": false
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-015-strict-infinity",
+      "observed": {
+        "accepted": false
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-016-strict-negative-infinity",
+      "observed": {
+        "accepted": false
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-017-strict-overflow",
+      "observed": {
+        "accepted": false
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-018-strict-float",
+      "observed": {
+        "accepted": false
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-019-strict-array",
+      "observed": {
+        "accepted": false
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-020-tamper-header",
+      "observed": {
+        "verified": false
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-021-tamper-payload",
+      "observed": {
+        "verified": false
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-022-tamper-signature",
+      "observed": {
+        "verified": false
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-023-combination-refuse",
+      "observed": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AMOUNT_MISMATCH"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-024-combination-refuse",
+      "observed": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AMOUNT_MISMATCH"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-025-combination-refuse",
+      "observed": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "MERCHANT_MISMATCH",
+          "TERMS_MISMATCH"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-026-combination-refuse",
+      "observed": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AMOUNT_MISMATCH",
+          "MERCHANT_MISMATCH"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-027-combination-refuse",
+      "observed": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AMOUNT_MISMATCH",
+          "DESTINATION_MISMATCH"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-028-combination-refuse",
+      "observed": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "TERMS_MISMATCH",
+          "DESTINATION_MISMATCH"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-029-concurrency-2",
+      "observed": {
+        "accepts": 1,
+        "new_request_count": 1
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-030-concurrency-8",
+      "observed": {
+        "accepts": 1,
+        "new_request_count": 1
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-031-concurrency-32",
+      "observed": {
+        "accepts": 1,
+        "new_request_count": 1
+      },
+      "pass": true
+    },
+    {
+      "id": "prc-032-concurrency-128",
+      "observed": {
+        "accepts": 1,
+        "new_request_count": 1
+      },
+      "pass": true
+    }
+  ],
+  "vectors": 32
+}

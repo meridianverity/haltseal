@@ -1,0 +1,31 @@
+{
+  "action_digest": "sha256:fc0348c18518a55fecddebd3d2765c871eb6a18f6b8fca96122aabb5869585de",
+  "authority_digest": "sha256:c75ebc728de8c8fba8e11b0f820f3aecf2475a399a90ee14b36f7a8b5bd8f009",
+  "boundary": {
+    "live_provider_call": false,
+    "patent_license_granted": false,
+    "payment_credentials_accepted": false,
+    "production_rights": false,
+    "profile_version": "haltseal-public-resolve-1",
+    "synthetic": true
+  },
+  "decision": "ACCEPT",
+  "emission": {
+    "disposition": "ONE_SYNTHETIC_REQUEST",
+    "existing_request_record_id": null,
+    "new_request_count": 1,
+    "outcome": "RECORDED",
+    "synthetic_request_record_id": "hsreq_sample_accept_0000000001",
+    "total_request_count_for_use": 1
+  },
+  "reason_codes": [
+    "AUTHORITY_CURRENT",
+    "ACTION_EXACT",
+    "USE_AVAILABLE"
+  ],
+  "receipt": {
+    "jws": "eyJhbGciOiJFZERTQSIsImtpZCI6ImhhbHRzZWFsLXB1YmxpYy1zYW1wbGUtMjAyNi0wOC12MSIsInR5cCI6IkhBTFRTRUFMLUVWQUwtUkVDRUlQVCtqd3MifQ.eyJhY3Rpb24iOnsiYW1vdW50X21pbm9yIjoyNTAwMCwiY3VycmVuY3kiOiJVU0QiLCJkZXN0aW5hdGlvbl9pZCI6ImFjY291bnRfc3ludGhldGljX2EiLCJtZXJjaGFudF9pZCI6Im1lcmNoYW50X3N5bnRoZXRpY19hbHBoYSIsInRlcm1zIjoiT05FX1RJTUUifSwiYWN0aW9uX2RpZ2VzdCI6InNoYTI1NjpmYzAzNDhjMTg1MThhNTVmZWNkZGViZDNkMjc2NWM4NzFlYjZhMThmNmI4ZmNhOTYxMjJhYWJiNTg2OTU4NWRlIiwiYXVkIjoiaGFsdHNlYWwtcHVibGljLXJlY2VpcHQiLCJhdXRob3JpdHkiOnsiYXV0aG9yaXplZF9hbW91bnRfbWlub3IiOjI1MDAwLCJjdXJyZW5jeSI6IlVTRCIsImRlc3RpbmF0aW9uX2lkIjoiYWNjb3VudF9zeW50aGV0aWNfYSIsIm1lcmNoYW50X2lkIjoibWVyY2hhbnRfc3ludGhldGljX2FscGhhIiwicmVtYWluaW5nX3VzZXMiOjEsInN0YXR1cyI6IkNVUlJFTlQiLCJ0ZXJtcyI6Ik9ORV9USU1FIn0sImF1dGhvcml0eV9kaWdlc3QiOiJzaGEyNTY6Yzc1ZWJjNzI4ZGU4YzhmYmE4ZTExYjBmODIwZjNhZWNmMjQ3NWEzOTlhOTBlZTE0YjM2ZjdhOGI1YmQ4ZjAwOSIsImJvdW5kYXJ5Ijp7ImxpdmVfcHJvdmlkZXJfY2FsbCI6ZmFsc2UsInBhdGVudF9saWNlbnNlX2dyYW50ZWQiOmZhbHNlLCJwYXltZW50X2NyZWRlbnRpYWxzX2FjY2VwdGVkIjpmYWxzZSwicHJvZHVjdGlvbl9yaWdodHMiOmZhbHNlLCJwcm9maWxlX3ZlcnNpb24iOiJoYWx0c2VhbC1wdWJsaWMtcmVzb2x2ZS0xIiwic3ludGhldGljIjp0cnVlfSwiY2hhbGxlbmdlX2lkIjoiaHNjX3NhbXBsZV9maXhlZF8wMDAwMDAwMDAwMDEiLCJjb25zdW1wdGlvbiI6eyJzdGF0ZV9hZnRlciI6IkNPTlNVTUVEIiwic3RhdGVfYmVmb3JlIjoiQVZBSUxBQkxFIn0sImRlY2lzaW9uIjoiQUNDRVBUIiwiZW1pc3Npb24iOnsiZGlzcG9zaXRpb24iOiJPTkVfU1lOVEhFVElDX1JFUVVFU1QiLCJleGlzdGluZ19yZXF1ZXN0X3JlY29yZF9pZCI6bnVsbCwibmV3X3JlcXVlc3RfY291bnQiOjEsIm91dGNvbWUiOiJSRUNPUkRFRCIsInN5bnRoZXRpY19yZXF1ZXN0X3JlY29yZF9pZCI6ImhzcmVxX3NhbXBsZV9hY2NlcHRfMDAwMDAwMDAwMSIsInRvdGFsX3JlcXVlc3RfY291bnRfZm9yX3VzZSI6MX0sImlhdCI6MTc4NTYwMDAwMCwiaXNzIjoiaHR0cHM6Ly9ldmFsLm1lcmlkaWFudmVyaXR5LmNvbSIsImp0aSI6Imhzcl9zYW1wbGVfYWNjZXB0XzAwMDAwMDAwMDAwMSIsInByb2ZpbGVfdmVyc2lvbiI6ImhhbHRzZWFsLXB1YmxpYy1yZXNvbHZlLTEiLCJyZWFzb25fY29kZXMiOlsiQVVUSE9SSVRZX0NVUlJFTlQiLCJBQ1RJT05fRVhBQ1QiLCJVU0VfQVZBSUxBQkxFIl19.9JHwSjE4KjcnEPb_CyPzerRZpem0bRpVxc9wr3D7NlNkq_nz9oqATPJwkcyA6sPIAIN38rIFkiVGnW2I5Se4Aw",
+    "receipt_id": "hsr_sample_accept_000000000001",
+    "sha256": "sha256:565a8e7f0a57c592d7c4843e9d7c4e699e50c6461a1984dd20dd21909465fa7f"
+  }
+}

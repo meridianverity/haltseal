@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "haltseal-gateway-proof-pack"
-version = "0.3.1"
-description = "HALTSEAL Gateway Proof Pack public-safe synthetic evaluation and proof receipt artifact"
+version = "0.4.0"
+description = "HALTSEAL Public Resolve Challenge contract, verifier, deterministic mock, and historical gateway proof pack"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "Source-available evaluation license; see LICENSE-EVALUATION.md"}
@@ -15,7 +15,15 @@ classifiers = [
   "Topic :: Security",
   "Intended Audience :: Developers",
 ]
+dependencies = ["cryptography>=42", "jsonschema>=4"]
+
+[project.scripts]
+haltseal-eval = "haltseal_resolve.cli:main"
+haltseal-contract-mock = "haltseal_resolve.mock_server:main"
 
 [tool.pytest.ini_options]
 addopts = "-q -p no:cacheprovider"
-testpaths = ["tests"]
+testpaths = ["tests", "tests_public_resolve"]
+
+[tool.setuptools]
+packages = ["haltseal_eval", "haltseal_resolve"]

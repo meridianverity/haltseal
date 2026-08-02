@@ -1,0 +1,13 @@
+{
+  "body_file": "docs/GITHUB_RELEASE_BODY.md",
+  "canonical_endpoint": "https://eval.meridianverity.com/haltseal/evaluation/v1",
+  "classification": "synthetic evaluation; public contract and verification; no live provider call",
+  "draft": false,
+  "name": "HALTSEAL Public Resolve Challenge v0.4.0 \u2014 Hosted Synthetic Evaluation",
+  "prerelease": false,
+  "publication_condition": "Publish only after the hosted launch gate passes; never publish private runtime assets.",
+  "repository": "meridianverity/haltseal",
+  "tag_name": "v0.4.0-public-resolve-challenge",
+  "target_commitish": "main",
+  "website": "https://meridianverity.com/haltseal/"
+}

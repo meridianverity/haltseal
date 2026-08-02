@@ -1,61 +1,111 @@
-# GitHub upload checklist
+# GitHub upload checklist — HALTSEAL Public Resolve Challenge v0.4.0
 
-Repository name recommendation:
-
-```text
-haltseal-gateway-proof-pack
-```
-
-Public repo description:
+## Canonical repository
 
 ```text
-Public-safe deterministic evaluation for permit-before-action AI-agent gateway control.
+https://github.com/meridianverity/haltseal
 ```
 
-Before the public push or release asset upload:
+Do not create a second public repository. Preserve `v0.3.2-hardened-eval` as an immutable historical local proof.
+
+## Repository metadata
+
+**About description**
+
+```text
+Hosted-synthetic exact-action challenge with ACCEPT, HOLD, or REFUSE and independently verifiable signed receipts. No live provider call.
+```
+
+**Website**
+
+```text
+https://meridianverity.com/haltseal/
+```
+
+**Topics**
+
+```text
+ai-agents
+agentic-commerce
+payments
+authorization
+api-security
+receipts
+openapi
+jws
+idempotency
+fail-closed
+synthetic-evaluation
+```
+
+## Tag and title
+
+```text
+Tag:   v0.4.0-public-resolve-challenge
+Title: HALTSEAL Public Resolve Challenge v0.4.0 — Hosted Synthetic Evaluation
+```
+
+## Pre-publication requirements
 
 ```bash
 python -m pip install -r requirements.txt
 make qa-full
-HALTSEAL_STRICT_TREE=1 python tools/release_gate.py
 python tools/package_release.py
 ```
 
-Recommended tag:
+In addition, the separately controlled hosted runtime must pass:
 
 ```text
-v0.3.2-hardened-eval
+strict raw-body parsing
+state-store fail-closed behavior
+signer fail-closed behavior
+64-way one-use concurrency
+zero provider egress
+rate limits and payload caps
+hosted JWKS verification
+local/offline semantic replay
+health/readiness probes
 ```
 
-Recommended release title:
+Do not publish the release as active until the hosted endpoint returns ready and the public website links resolve successfully.
 
-```text
-HALTSEAL Gateway Proof Pack v0.3.2-hardened-eval — Public Gateway Proof Pack
-```
+## Release body
 
-Recommended release body:
+Copy the content of:
 
 ```text
 docs/GITHUB_RELEASE_BODY.md
 ```
 
-Release positioning:
+## Public release assets
+
+Upload only the files listed in:
 
 ```text
-v0.3.2-hardened-eval keeps the v0.3.0 public evaluation boundary intact and adds hardened reviewer-facing verification: proof receipt, transparency bundle, deterministic Ed25519 proof profile, independent recomputation, release-artifact verification, strict manifest/source-tree locking, and full QA preflight.
+release/v0.4.0/PUBLIC_GITHUB_ASSET_INDEX.json
 ```
 
-Upload these release assets from `dist/`:
+Never upload:
 
 ```text
-haltseal-gateway-proof-pack-v0.3.2-hardened-eval.zip
-haltseal-gateway-proof-pack-v0.3.2-hardened-eval.zip.sha256.txt
+HALTSEAL_v0_4_0_PRIVATE_HOSTED_RUNTIME.zip
+signing seed or private key
+SQLite state
+runtime environment files
+provider credentials
+buyer trust roots
+provider adapter or protected-emitter code
+confidential claim or target material
 ```
 
-Optional supporting asset:
+## Final visual and link check
 
-```text
-MANIFEST.sha256.json
-```
-
-Do not describe this release as a production SDK, production attestation, certification, conformance program, legal opinion, commercial offer, field-of-use agreement, IETF endorsement, formal standards-track output, or patent-license grant.
+- release body renders correctly;
+- hosted endpoint and website links use HTTPS;
+- OpenAPI file resolves;
+- sample receipt verifies from a fresh download;
+- JWKS contains public keys only;
+- no endpoint accepts credentials, URLs, or callbacks;
+- all public assets match their SHA-256 sidecars;
+- GitHub release is not marked as a prerelease after launch activation;
+- previous tags and assets remain unchanged.
