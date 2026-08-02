@@ -1,0 +1,400 @@
+{
+  "registry": "HALTSEAL-PUBLIC-RESOLVE-CONFORMANCE-1",
+  "vectors": [
+    {
+      "expected": {
+        "decision": "ACCEPT",
+        "new_request_count": 1,
+        "reason_codes": [
+          "AUTHORITY_CURRENT",
+          "ACTION_EXACT",
+          "USE_AVAILABLE"
+        ]
+      },
+      "id": "prc-001-exact-accept",
+      "idempotency_key": "vector-exact-accept-0001",
+      "kind": "resolve",
+      "profile": "payment.one-time-purchase.v1"
+    },
+    {
+      "action_patch": {
+        "amount_minor": 25001
+      },
+      "expected": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AMOUNT_MISMATCH"
+        ]
+      },
+      "id": "prc-002-amount-high-refuse",
+      "idempotency_key": "vector-amount-high-refuse-0001",
+      "kind": "resolve",
+      "profile": "payment.one-time-purchase.v1"
+    },
+    {
+      "action_patch": {
+        "amount_minor": 24999
+      },
+      "expected": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AMOUNT_MISMATCH"
+        ]
+      },
+      "id": "prc-003-amount-low-refuse",
+      "idempotency_key": "vector-amount-low-refuse-0001",
+      "kind": "resolve",
+      "profile": "payment.one-time-purchase.v1"
+    },
+    {
+      "action_patch": {
+        "merchant_id": "merchant_synthetic_beta"
+      },
+      "expected": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "MERCHANT_MISMATCH"
+        ]
+      },
+      "id": "prc-004-merchant-refuse",
+      "idempotency_key": "vector-merchant-refuse-0001",
+      "kind": "resolve",
+      "profile": "payment.one-time-purchase.v1"
+    },
+    {
+      "action_patch": {
+        "terms": "RECURRING_MONTHLY"
+      },
+      "expected": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "TERMS_MISMATCH"
+        ]
+      },
+      "id": "prc-005-terms-refuse",
+      "idempotency_key": "vector-terms-refuse-0001",
+      "kind": "resolve",
+      "profile": "payment.one-time-purchase.v1"
+    },
+    {
+      "action_patch": {
+        "destination_id": "account_synthetic_b"
+      },
+      "expected": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "DESTINATION_MISMATCH"
+        ]
+      },
+      "id": "prc-006-destination-refuse",
+      "idempotency_key": "vector-destination-refuse-0001",
+      "kind": "resolve",
+      "profile": "payment.one-time-purchase.v1"
+    },
+    {
+      "action_patch": {
+        "amount_minor": 25001,
+        "destination_id": "account_synthetic_b",
+        "terms": "RECURRING_MONTHLY"
+      },
+      "expected": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AMOUNT_MISMATCH",
+          "TERMS_MISMATCH",
+          "DESTINATION_MISMATCH"
+        ]
+      },
+      "id": "prc-007-multi-field-refuse",
+      "idempotency_key": "vector-multi-refuse-0001",
+      "kind": "resolve",
+      "profile": "payment.one-time-purchase.v1"
+    },
+    {
+      "expected": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AUTHORITY_REVOKED"
+        ]
+      },
+      "id": "prc-008-revoked-refuse",
+      "idempotency_key": "vector-revoked-refuse-0001",
+      "kind": "resolve",
+      "profile": "payment.revoked-authority.v1"
+    },
+    {
+      "expected": {
+        "decision": "HOLD",
+        "new_request_count": 0,
+        "reason_codes": [
+          "PROVIDER_OUTCOME_UNKNOWN"
+        ]
+      },
+      "id": "prc-009-unknown-hold",
+      "idempotency_key": "vector-unknown-hold-0001",
+      "kind": "resolve",
+      "profile": "payment.outcome-unknown.v1"
+    },
+    {
+      "expected": {
+        "first_replayed": false,
+        "same_response": true,
+        "second_replayed": true,
+        "total_request_count": 1
+      },
+      "id": "prc-010-same-key-retry",
+      "idempotency_key": "vector-same-key-retry-001",
+      "kind": "same_key_retry"
+    },
+    {
+      "expected": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AUTHORIZED_USE_ALREADY_CONSUMED"
+        ]
+      },
+      "first_key": "vector-first-use-00001",
+      "id": "prc-011-new-use-refuse",
+      "kind": "new_use",
+      "second_key": "vector-second-use-0001"
+    },
+    {
+      "calls": 64,
+      "expected": {
+        "accepts": 1,
+        "new_request_count": 1
+      },
+      "id": "prc-012-concurrency-64",
+      "kind": "concurrency"
+    },
+    {
+      "expected": {
+        "accepted": false
+      },
+      "id": "prc-013-strict-duplicate",
+      "kind": "strict_json",
+      "raw": "{\"amount_minor\":999999,\"amount_minor\":25000}"
+    },
+    {
+      "expected": {
+        "accepted": false
+      },
+      "id": "prc-014-strict-nan",
+      "kind": "strict_json",
+      "raw": "{\"x\":NaN}"
+    },
+    {
+      "expected": {
+        "accepted": false
+      },
+      "id": "prc-015-strict-infinity",
+      "kind": "strict_json",
+      "raw": "{\"x\":Infinity}"
+    },
+    {
+      "expected": {
+        "accepted": false
+      },
+      "id": "prc-016-strict-negative-infinity",
+      "kind": "strict_json",
+      "raw": "{\"x\":-Infinity}"
+    },
+    {
+      "expected": {
+        "accepted": false
+      },
+      "id": "prc-017-strict-overflow",
+      "kind": "strict_json",
+      "raw": "{\"x\":1e400}"
+    },
+    {
+      "expected": {
+        "accepted": false
+      },
+      "id": "prc-018-strict-float",
+      "kind": "strict_json",
+      "raw": "{\"x\":1.0}"
+    },
+    {
+      "expected": {
+        "accepted": false
+      },
+      "id": "prc-019-strict-array",
+      "kind": "strict_json",
+      "raw": "[]"
+    },
+    {
+      "expected": {
+        "verified": false
+      },
+      "id": "prc-020-tamper-header",
+      "kind": "receipt_tamper",
+      "segment": 0
+    },
+    {
+      "expected": {
+        "verified": false
+      },
+      "id": "prc-021-tamper-payload",
+      "kind": "receipt_tamper",
+      "segment": 1
+    },
+    {
+      "expected": {
+        "verified": false
+      },
+      "id": "prc-022-tamper-signature",
+      "kind": "receipt_tamper",
+      "segment": 2
+    },
+    {
+      "action_patch": {
+        "amount_minor": 1
+      },
+      "expected": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AMOUNT_MISMATCH"
+        ]
+      },
+      "id": "prc-023-combination-refuse",
+      "idempotency_key": "vector-combination-0023",
+      "kind": "resolve",
+      "profile": "payment.one-time-purchase.v1"
+    },
+    {
+      "action_patch": {
+        "amount_minor": 100000
+      },
+      "expected": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AMOUNT_MISMATCH"
+        ]
+      },
+      "id": "prc-024-combination-refuse",
+      "idempotency_key": "vector-combination-0024",
+      "kind": "resolve",
+      "profile": "payment.one-time-purchase.v1"
+    },
+    {
+      "action_patch": {
+        "merchant_id": "merchant_synthetic_beta",
+        "terms": "RECURRING_MONTHLY"
+      },
+      "expected": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "MERCHANT_MISMATCH",
+          "TERMS_MISMATCH"
+        ]
+      },
+      "id": "prc-025-combination-refuse",
+      "idempotency_key": "vector-combination-0025",
+      "kind": "resolve",
+      "profile": "payment.one-time-purchase.v1"
+    },
+    {
+      "action_patch": {
+        "amount_minor": 25001,
+        "merchant_id": "merchant_synthetic_beta"
+      },
+      "expected": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AMOUNT_MISMATCH",
+          "MERCHANT_MISMATCH"
+        ]
+      },
+      "id": "prc-026-combination-refuse",
+      "idempotency_key": "vector-combination-0026",
+      "kind": "resolve",
+      "profile": "payment.one-time-purchase.v1"
+    },
+    {
+      "action_patch": {
+        "amount_minor": 24999,
+        "destination_id": "account_synthetic_b"
+      },
+      "expected": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "AMOUNT_MISMATCH",
+          "DESTINATION_MISMATCH"
+        ]
+      },
+      "id": "prc-027-combination-refuse",
+      "idempotency_key": "vector-combination-0027",
+      "kind": "resolve",
+      "profile": "payment.one-time-purchase.v1"
+    },
+    {
+      "action_patch": {
+        "destination_id": "account_synthetic_b",
+        "terms": "RECURRING_MONTHLY"
+      },
+      "expected": {
+        "decision": "REFUSE",
+        "new_request_count": 0,
+        "reason_codes": [
+          "TERMS_MISMATCH",
+          "DESTINATION_MISMATCH"
+        ]
+      },
+      "id": "prc-028-combination-refuse",
+      "idempotency_key": "vector-combination-0028",
+      "kind": "resolve",
+      "profile": "payment.one-time-purchase.v1"
+    },
+    {
+      "calls": 2,
+      "expected": {
+        "accepts": 1,
+        "new_request_count": 1
+      },
+      "id": "prc-029-concurrency-2",
+      "kind": "concurrency"
+    },
+    {
+      "calls": 8,
+      "expected": {
+        "accepts": 1,
+        "new_request_count": 1
+      },
+      "id": "prc-030-concurrency-8",
+      "kind": "concurrency"
+    },
+    {
+      "calls": 32,
+      "expected": {
+        "accepts": 1,
+        "new_request_count": 1
+      },
+      "id": "prc-031-concurrency-32",
+      "kind": "concurrency"
+    },
+    {
+      "calls": 128,
+      "expected": {
+        "accepts": 1,
+        "new_request_count": 1
+      },
+      "id": "prc-032-concurrency-128",
+      "kind": "concurrency"
+    }
+  ],
+  "version": "1.0.0"
+}

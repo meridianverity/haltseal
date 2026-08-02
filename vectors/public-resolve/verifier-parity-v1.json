@@ -1,0 +1,26 @@
+{
+  "registry": "HALTSEAL-PUBLIC-RECEIPT-VERIFIER-PARITY-1",
+  "profile": "haltseal-public-resolve-1",
+  "cases": [
+    {"id": "vp-001-canonical-accept", "mutation": "none", "expected": "PASS"},
+    {"id": "vp-002-wrong-issuer", "mutation": "wrong_issuer", "expected": "FAIL"},
+    {"id": "vp-003-wrong-audience", "mutation": "wrong_audience", "expected": "FAIL"},
+    {"id": "vp-004-wrong-profile-version", "mutation": "wrong_profile", "expected": "FAIL"},
+    {"id": "vp-005-live-provider-boundary", "mutation": "live_provider", "expected": "FAIL"},
+    {"id": "vp-006-payment-credentials-boundary", "mutation": "credentials_accepted", "expected": "FAIL"},
+    {"id": "vp-007-accept-unknown-outcome", "mutation": "accept_unknown", "expected": "FAIL"},
+    {"id": "vp-008-accept-existing-request", "mutation": "accept_existing", "expected": "FAIL"},
+    {"id": "vp-009-new-request-count-overflow", "mutation": "new_count_999", "expected": "FAIL"},
+    {"id": "vp-010-total-request-count-overflow", "mutation": "total_count_999", "expected": "FAIL"},
+    {"id": "vp-011-empty-jti", "mutation": "empty_jti", "expected": "FAIL"},
+    {"id": "vp-012-string-iat", "mutation": "string_iat", "expected": "FAIL"},
+    {"id": "vp-013-integer-challenge-id", "mutation": "integer_challenge", "expected": "FAIL"},
+    {"id": "vp-014-duplicate-reason-code", "mutation": "duplicate_reason", "expected": "FAIL"},
+    {"id": "vp-015-unknown-emission-field", "mutation": "unknown_emission", "expected": "FAIL"},
+    {"id": "vp-016-unknown-action-field", "mutation": "unknown_action", "expected": "FAIL"},
+    {"id": "vp-017-string-amount", "mutation": "string_amount", "expected": "FAIL"},
+    {"id": "vp-018-boundary-extra-field", "mutation": "boundary_extra", "expected": "FAIL"},
+    {"id": "vp-019-padded-signature-segment", "mutation": "signature_padding", "expected": "FAIL"},
+    {"id": "vp-020-standard-base64-signature", "mutation": "standard_base64_signature", "expected": "FAIL"}
+  ]
+}

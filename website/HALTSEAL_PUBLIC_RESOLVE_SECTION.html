@@ -1,0 +1,24 @@
+<section id="developer-proof-surface" aria-labelledby="developer-proof-title">
+  <p class="eyebrow">Developer proof surface</p>
+  <h2 id="developer-proof-title">Call the same boundary over HTTP.</h2>
+  <p>
+    Submit one complete synthetic payment action against a server-issued authority challenge.
+    HALTSEAL returns <code>ACCEPT</code>, <code>HOLD</code>, or <code>REFUSE</code> and a signed
+    receipt you can verify independently.
+  </p>
+  <p class="proof-provenance">Receiver policy · short-lived permit · live state</p>
+  <pre><code>POST /resolve
+One complete synthetic action
+One bounded decision
+One signed receipt
+No live provider call</code></pre>
+  <div class="actions">
+    <a class="button button-primary" href="https://eval.meridianverity.com/haltseal/evaluation/v1">Call the public challenge API</a>
+    <a class="button" href="https://github.com/meridianverity/haltseal/tree/main/examples/curl">Copy the curl example</a>
+    <a class="button" href="https://github.com/meridianverity/haltseal/tree/main/verifier">Verify a receipt</a>
+    <a class="button" href="https://github.com/meridianverity/haltseal/blob/main/openapi/haltseal-public-resolve-v1.yaml">View the OpenAPI contract</a>
+  </div>
+  <p class="boundary-note">
+    Synthetic evaluation · No payment credentials · No live provider request · No production or patent rights
+  </p>
+</section>

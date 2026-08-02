@@ -39,11 +39,31 @@ def build_manifest() -> list[dict]:
     return rows
 
 
+
+def build_source_tree() -> list[str]:
+    rows: list[str] = []
+    for path in sorted(ROOT.rglob("*")):
+        if not path.is_file():
+            continue
+        rel = path.relative_to(ROOT)
+        if set(rel.parts) & EXCLUDE_PARTS:
+            continue
+        if path.suffix.lower() in EXCLUDE_SUFFIXES:
+            continue
+        rows.append(str(rel).replace("\\", "/"))
+    for name in ("MANIFEST.json", "MANIFEST.sha256.json"):
+        if name not in rows:
+            rows.append(name)
+    return sorted(rows)
+
 def main() -> int:
+    source_tree = build_source_tree()
+    (ROOT / "SOURCE_TREE.txt").write_text("\n".join(source_tree) + "\n", encoding="utf-8")
     rows = build_manifest()
-    (ROOT / "MANIFEST.json").write_text(json.dumps({"artifact": "haltseal-gateway-proof-pack", "version": VERSION, "files": rows}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    (ROOT / "MANIFEST.json").write_text(json.dumps({"artifact": "haltseal-public-resolve-challenge", "version": VERSION, "files": rows}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     (ROOT / "MANIFEST.sha256.json").write_text(json.dumps({row["path"]: row["sha256"] for row in rows}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(f"manifest: wrote {len(rows)} file entries")
+    print(f"source tree: wrote {len(source_tree)} file entries")
     return 0
 
 
