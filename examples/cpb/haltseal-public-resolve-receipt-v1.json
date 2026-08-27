@@ -1,0 +1,85 @@
+{
+  "artifact_type": "haltseal-public-resolve-receipt",
+  "profile_version": "haltseal-public-resolve-1",
+  "vector_set_version": "1.0",
+  "algorithm": "as-transmitted",
+  "hash": "SHA-256",
+  "representation": "bare 64-character lowercase hex",
+  "byte_boundary_selector": "RFC 7515 §5.1, JWS Signing Input",
+  "source_commit": "6e1e4c1fabf97cf057cc3299dafb09c2ffe182c3",
+  "source_profile": "docs/public-resolve/RECEIPT_PROFILE.md",
+  "scope": "CPB identifier context only. This vector set does not specify or register HALTSEAL action_digest or authority_digest equivalence constructions.",
+  "positive": [
+    {
+      "id": "hs-cpb-id-kat-01-accept-exact",
+      "description": "Known-answer test: SHA-256 over the exact RFC 7515 §5.1 JWS Signing Input of the published accept-exact HALTSEAL public resolve receipt; output is bare 64-character lowercase hex.",
+      "receipt_file": "examples/receipts/accept-exact.receipt.jws",
+      "receipt_file_sha256": "caeec0fd66773e6da55113b5c903d5faddb6f917f59d66f12b8d3fecf3af98f9",
+      "preimage_selector": "RFC 7515 §5.1, JWS Signing Input",
+      "preimage_length_bytes": 1895,
+      "expected_digest_bare_hex": "1a5d717a4238e53fa0d2f53c070eb7846af4f933943d9a1cc1ebf0078aa662ff"
+    },
+    {
+      "id": "hs-cpb-id-kat-02-hold-outcome-unknown",
+      "description": "Known-answer test: SHA-256 over the exact RFC 7515 §5.1 JWS Signing Input of the published hold-outcome-unknown HALTSEAL public resolve receipt; output is bare 64-character lowercase hex.",
+      "receipt_file": "examples/receipts/hold-outcome-unknown.receipt.jws",
+      "receipt_file_sha256": "d477d5b5a5df3bd04b5c4953e6229f9fb9fcc3793de374dc9baa2b48bd47b8d9",
+      "preimage_selector": "RFC 7515 §5.1, JWS Signing Input",
+      "preimage_length_bytes": 1846,
+      "expected_digest_bare_hex": "c1c0d43334c0c6516e976a652597249db656f67ae0ab3585c6a6a5042fcb3e66"
+    },
+    {
+      "id": "hs-cpb-id-kat-03-refuse-changed-terms",
+      "description": "Known-answer test: SHA-256 over the exact RFC 7515 §5.1 JWS Signing Input of the published refuse-changed-terms HALTSEAL public resolve receipt; output is bare 64-character lowercase hex.",
+      "receipt_file": "examples/receipts/refuse-changed-terms.receipt.jws",
+      "receipt_file_sha256": "dc9788c136a13e0c6b4fad799ec669146caf4c997b673b8f59446351bd4dd9b0",
+      "preimage_selector": "RFC 7515 §5.1, JWS Signing Input",
+      "preimage_length_bytes": 1805,
+      "expected_digest_bare_hex": "fb877bd6819fa3a8ea36ffa2c1dc4b1dcc86c1566e14ed659046207918b7f6bb"
+    },
+    {
+      "id": "hs-cpb-id-kat-04-refuse-consumed-use",
+      "description": "Known-answer test: SHA-256 over the exact RFC 7515 §5.1 JWS Signing Input of the published refuse-consumed-use HALTSEAL public resolve receipt; output is bare 64-character lowercase hex.",
+      "receipt_file": "examples/receipts/refuse-consumed-use.receipt.jws",
+      "receipt_file_sha256": "89eef38dc16011bab5fdc1973b32b7c5864e7da956d40dc3e777bc052c05bef5",
+      "preimage_selector": "RFC 7515 §5.1, JWS Signing Input",
+      "preimage_length_bytes": 1813,
+      "expected_digest_bare_hex": "89633fe62383c7b720d43da097c95fa5c78c9eac0dffa768c356c2cc3cbff1f2"
+    }
+  ],
+  "negative": [
+    {
+      "id": "hs-cpb-id-fail-01-full-jws-boundary",
+      "description": "Primary discriminator. HALTSEAL hashes the RFC 7515 JWS Signing Input (protected-header.payload), not the full compact JWS including the signature. A full-JWS byte-boundary implementation computes the pinned wrong digest and MUST NOT verify as this identifier context.",
+      "source_positive": "hs-cpb-id-kat-01-accept-exact",
+      "wrong_preimage": "full compact JWS (protected-header.payload.signature)",
+      "wrong_preimage_length_bytes": 1982,
+      "wrong_digest_bare_hex": "565a8e7f0a57c592d7c4843e9d7c4e699e50c6461a1984dd20dd21909465fa7f",
+      "must_not_equal": "hs-cpb-id-kat-01-accept-exact.expected_digest_bare_hex"
+    },
+    {
+      "id": "hs-cpb-id-fail-02-signing-input-trailing-lf",
+      "description": "Byte-exactness: appending one LF octet to the otherwise correct RFC 7515 JWS Signing Input changes the digest. A verifier MUST NOT trim, append, or normalize bytes before hashing.",
+      "source_positive": "hs-cpb-id-kat-01-accept-exact",
+      "mutation": "append 0x0A to JWS Signing Input",
+      "wrong_preimage_length_bytes": 1896,
+      "wrong_digest_bare_hex": "2b6317209c54f039cbcf398feae372f4927719998b053ee30b98ebce89cc3016",
+      "must_not_equal": "hs-cpb-id-kat-01-accept-exact.expected_digest_bare_hex"
+    },
+    {
+      "id": "hs-cpb-id-fail-03-representation-prefix",
+      "description": "Representation is part of the digest context. The registered identifier is bare lowercase hex; a sha256:-prefixed spelling MUST be rejected rather than normalized.",
+      "source_positive": "hs-cpb-id-kat-01-accept-exact",
+      "bare_form": "1a5d717a4238e53fa0d2f53c070eb7846af4f933943d9a1cc1ebf0078aa662ff",
+      "invalid_prefixed_form": "sha256:1a5d717a4238e53fa0d2f53c070eb7846af4f933943d9a1cc1ebf0078aa662ff",
+      "expected": "REJECT (identifier representation must match ^[0-9a-f]{64}$)"
+    },
+    {
+      "id": "hs-cpb-id-fail-04-uppercase-hex",
+      "description": "Identifier validation is exact lowercase hexadecimal. Uppercase hexadecimal MUST be rejected rather than case-folded.",
+      "source_positive": "hs-cpb-id-kat-01-accept-exact",
+      "invalid_uppercase_form": "1A5D717A4238E53FA0D2F53C070EB7846AF4F933943D9A1CC1EBF0078AA662FF",
+      "expected": "REJECT (identifier representation must match ^[0-9a-f]{64}$)"
+    }
+  ]
+}
